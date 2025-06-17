@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="styles/color-style-and-fonts.css" />
     <link rel="stylesheet" href="styles/starting-screen.css" />
     <link rel="stylesheet" href="styles/nav-bar.css" />
+    <link rel="stylesheet" href="styles/recipe-list.css" />
     <link
       href="https://cdn.boxicons.com/fonts/basic/boxicons.min.css"
       rel="stylesheet"
@@ -29,7 +30,7 @@
       <p class="loading-text js-loading-text">Whisking up something good...</p>
       <p class="credits">Powered by Spoonacular</p>
     </div>
-    <nav class="nav-bar js-nav-bar hide">
+    <nav class="nav-bar js-nav-bar">
       <div class="right-elements-nav">
         <img
           src="images/logo.png"
@@ -51,5 +52,15 @@
         </div>
       </div>
     </nav>
+    <div class="recipe-lists js-recipe-list">
+        <div class="filters js-filters">
+            <p class="filter-btn all js-filter-all selected">all</p>
+            <p class="filter-btn iced-drinks js-filter-iced-drinks">ice drinks</p>
+            <p class="filter-btn hot-drinks js-filter-hot-drinks">hot drinks</p>
+            <p class="filter-btn deserts js-filter-deserts">deserts</p>
+            <p class="filter-btn vegan js-filter-vegan">vegan</p>
+        </div>
+        <div class="recipes-container"></div>
+    </div>
   </body>
 </html>

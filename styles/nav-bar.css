@@ -34,6 +34,7 @@
 .bxs-menu-wide {
     color: var(--accent-color);
     font-size: clamp(1.2rem, 1.5vw, 2.5rem);
+    cursor: pointer;
 }
 
 .search-bar {
