@@ -1,0 +1,48 @@
+:root {
+  --text-color: #0a0b05;
+  --bg-color: #f8faf4;
+  --primary-color: #8ea60d;
+  --secondary-color: #5a5a37;
+  --accent-color: #253134;
+}
+
+body {
+  background-color: var(--bg-color);
+  overflow: auto;
+}
+
+* {
+  font-family: "Itim", cursive;
+  margin: 0;
+  padding: 0;
+}
+
+.welcome-screen-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh
+}
+
+.logo-starting-screen {
+    max-width: 300px;
+    min-width: 100px;
+    padding-left: 9%;
+}
+
+.matcha-moments-starting-screen {
+    color: var(--primary-color);
+    font-size: clamp(2.5rem, 2vw, 3.5rem);
+    margin-top: 5vh;
+}
+
+.loading-text {
+    font-size: clamp(1.2rem, 1.5vw, 2rem);
+}
+
+.credits {
+    position: fixed;
+    bottom: 0;
+    padding-bottom: 3vh;
+}
