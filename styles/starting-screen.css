@@ -1,0 +1,34 @@
+.welcome-screen-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh
+}
+
+.logo-starting-screen {
+    max-width: 300px;
+    min-width: 100px;
+    padding-left: 9%;
+}
+
+.matcha-moments-starting-screen {
+    color: var(--primary-color);
+    font-size: clamp(2.5rem, 2vw, 3.5rem);
+    margin-top: 5vh;
+}
+
+.loading-text,
+.credits {
+    font-size: clamp(1.2rem, 1.5vw, 2rem);
+}
+
+.credits {
+    position: fixed;
+    bottom: 0;
+    padding-bottom: 3vh;
+}
+
+.hide {
+    display: none;
+}

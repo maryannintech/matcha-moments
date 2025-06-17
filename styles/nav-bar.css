@@ -1,0 +1,54 @@
+.nav-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3vh;
+    gap: 3vh;
+}
+
+.logo-nav-bar {
+    max-width: 120px;
+    min-width: 50px;
+}
+
+.right-elements-nav,
+.left-elements-nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.left-elements-nav {
+    gap: 1vh;
+}
+
+.matcha-moments-nav-bar {
+    color: var(--primary-color);
+    font-size: clamp(2rem, 1.5vw, 3.5rem);
+}
+
+.bxs-home-alt,
+.bxs-star,
+.bxs-menu-wide {
+    color: var(--accent-color);
+    font-size: clamp(1.2rem, 1.5vw, 2.5rem);
+}
+
+.search-bar {
+    max-width: 300px;
+    min-width: 200px;
+    border: 0.2rem solid var(--primary-color);
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+}
+
+.search-bar:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+}
+
+.hide {
+    display: none;
+}

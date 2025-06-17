@@ -7,17 +7,49 @@
       href="https://fonts.googleapis.com/css2?family=Itim&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles/color-style-and-fonts.css">
+    <link rel="stylesheet" href="styles/color-style-and-fonts.css" />
+    <link rel="stylesheet" href="styles/starting-screen.css" />
+    <link rel="stylesheet" href="styles/nav-bar.css" />
+    <link
+      href="https://cdn.boxicons.com/fonts/basic/boxicons.min.css"
+      rel="stylesheet"
+    />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>matcha moments</title>
   </head>
   <body>
-    <div class="welcome-screen-container js-welcome-screen-container">
-        <img src="images/logo.png" alt="Matcha Moments Logo" class="logo-starting-screen" />
-        <p class="matcha-moments-starting-screen">matcha moments</p>
-        <p class="loading-text js-loading-text">Whisking up something good...</p>
-        <p class="credits">Powered by Spoonacular</p>
+    <div class="welcome-screen-container js-welcome-screen-container hide">
+      <img
+        src="images/logo.png"
+        alt="Matcha Moments Logo"
+        class="logo-starting-screen"
+      />
+      <p class="matcha-moments-starting-screen">matcha moments</p>
+      <p class="loading-text js-loading-text">Whisking up something good...</p>
+      <p class="credits">Powered by Spoonacular</p>
     </div>
+    <nav class="nav-bar js-nav-bar hide">
+      <div class="right-elements-nav">
+        <img
+          src="images/logo.png"
+          alt="Matcha Moments Logo"
+          class="logo-nav-bar"
+        />
+        <p class="matcha-moments-nav-bar">matcha moments</p>
+      </div>
+      <div class="left-elements-nav">
+        <input
+          type="text"
+          class="search-bar js-search-bar"
+          placeholder="Discover matcha recipes & more..."
+        />
+        <div class="left-elements-nav-icons">
+          <i class="bx bxs-home-alt"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-menu-wide"></i>
+        </div>
+      </div>
+    </nav>
   </body>
 </html>
