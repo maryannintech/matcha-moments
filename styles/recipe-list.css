@@ -24,3 +24,7 @@
     background-color: var(--accent-color);
     color: var(--bg-color);
 }
+
+.hide {
+    display: none;
+}
