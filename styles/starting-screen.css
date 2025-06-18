@@ -29,6 +29,11 @@
     padding-bottom: 3vh;
 }
 
+.credits > a {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
 .hide {
     display: none;
 }
