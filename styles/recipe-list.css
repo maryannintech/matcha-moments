@@ -61,6 +61,10 @@
   cursor: pointer;
 }
 
+.bx-star:hover {
+  color: var(--primary-color);
+}
+
 .recipe-star-category {
   display: flex;
   justify-content: space-between;
@@ -77,11 +81,11 @@
 
 .recipe-name {
   color: var(--bg-color);
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   background-color: var(--primary-color);
   width: fit-content;
-  padding: 0.5vh 1vh;
-  border-radius: 0.5rem;
+  padding: 0.5vh 2vh;
+  border-radius: 1rem;
   position: absolute;
   bottom: 0;
   margin-bottom: 1rem;

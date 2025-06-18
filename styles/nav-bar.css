@@ -37,6 +37,12 @@
     cursor: pointer;
 }
 
+.bxs-home-alt:hover,
+.bxs-star:hover,
+.bxs-menu-wide:hover {
+    color: var(--primary-color);
+}
+
 .search-bar {
     max-width: 300px;
     min-width: 200px;
