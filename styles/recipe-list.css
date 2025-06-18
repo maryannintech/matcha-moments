@@ -20,6 +20,11 @@
   font-size: clamp(1rem, 1.5vw, 1.5rem);
 }
 
+.filter-btn:hover {
+  background-color: var(--accent-color);
+  color: var(--bg-color);
+}
+
 .selected {
   background-color: var(--accent-color);
   color: var(--bg-color);
