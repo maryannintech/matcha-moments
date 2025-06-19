@@ -1,3 +1,5 @@
+import { capitalizeFirstLetter } from "./utils/format-text.js";
+
 export function renderRecipes(recipe) {
   const recipeCardHTML = `
    <div class="recipe-card js-recipe-card" data-recipe-id="${
@@ -32,13 +34,13 @@ export function renderRecipeDetailCard(recipe) {
           <p class="recipe-summary js-recipe-summary">
           ${
             recipe.summary
-              ? recipe.summary
+              ? recipe.summary.split(".")[0] // Split at the first link to avoid HTML tags
               : "No summary? Don't matcha-bout it, dive in!"
           }
           </p>
           <div class="recipe-summary-star js-recipe-summary-star">
              ${
-               recipe.favorite == "true"
+               recipe.favorite
                  ? `<i class="bx bxs-star"></i>`
                  : `<i class="bx bx-star"></i>`
              }
@@ -59,27 +61,30 @@ export function renderRecipeDetailCard(recipe) {
                     `<li class="ingredients-li">${ingredient}</li>`
                 )
                 .join("") || "<li>No ingredients listed.</li>"
-            } } 
+            } 
           </ul>
           <p class="tools-text text">tools</p>
           <ul class="tools-ul">
            ${
              recipe.equipment?.length
                ? recipe.equipment
-                   .map((tool) => `<li class="tools-li">${tool}</li>`)
+                   .map((tool) => `<li class="tools-li">${capitalizeFirstLetter(tool)}</li>`)
                    .join("")
                : "<li>No tools listed.</li>"
            }
           </ul>
           <p class="instructions-text text">instructions</p>
           <ol class="instructions-ul">
-           ${
-             recipe.instructions?.length
-               ? recipe.instructions
-                   .map((step) => `<li class="instructions-li">${step}</li>`)
-                   .join("")
-               : "<li>No instructions available.</li>"
-           }
+          ${
+            recipe.instructions
+              ? recipe.instructions
+                  .filter((step) => step.trim() !== "")
+                  .map(
+                    (step) => `<li class="instructions-li">${step.trim()}.</li>`
+                  )
+                  .join("")
+              : "<li>No instructions available.</li>"
+          }
           </ol>
         </div>
       </div>

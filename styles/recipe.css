@@ -67,3 +67,11 @@
   margin-left: 2vh;
   width: 50vh;
 }
+
+.bx-star {
+  color: var(--primary-color);
+}
+
+.recipe-summary {
+  font-weight: 500;
+}

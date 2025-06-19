@@ -1,21 +1,25 @@
-import { apiRecipesDetails, apiRecipes, fetchRecipeDetails } from "../data/recipes.js";
+import {
+  apiRecipesDetails,
+  apiRecipes,
+  fetchRecipeDetails,
+} from "../data/recipes.js";
 import { renderRecipeDetailCard } from "./recipe.js";
 
 const params = new URLSearchParams(window.location.search);
-const recipeId = params.get("id");
+const recipeId = Number(params.get("id"));
 
-if (apiRecipesDetails.length === 0) {
-  fetchRecipeDetails();
+
+async function loadRecipeDetail() {
+  if (apiRecipesDetails.length === 0) {
+    await fetchRecipeDetails(); // Wait for it to finish
+  }
+
+  const recipe = apiRecipesDetails.find((r) => r.id === recipeId);
+  console.log("Recipe found:", recipe);
+  recipe ? renderRecipeDetail(recipe) : "Recipe not found";
 }
 
-if (apiRecipes.length > 0 && recipeId) {
-    const recipe = apiRecipesDetails.find((recipe) => recipe.id === recipeId);
-    if (recipe) {
-        renderRecipeDetail(recipe);
-    } else {
-        console.error("Recipe not found:", recipeId);
-    }
-} 
+loadRecipeDetail();
 
 export function renderRecipeDetail(recipe) {
   const recipeDetailContainer = document.querySelector(

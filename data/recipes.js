@@ -16,7 +16,6 @@ export let apiRecipesDetails = localStorage.getItem("apiRecipesDetails")
   ? JSON.parse(localStorage.getItem("apiRecipesDetails"))
   : [];
 
-
 export async function fetchRecipes() {
   try {
     const response = await fetch(
@@ -44,17 +43,31 @@ export async function fetchRecipeDetails() {
   try {
     for (const recipe of apiRecipes) {
       const response = await fetch(
-        `https://api.spoonacular.com/recipes/${recipe.id}/information?apiKey=${myApiKey}`
+        `https://api.spoonacular.com/recipes/${recipe.id}/information?includeNutrition=false&apiKey=${myApiKey}`
       );
       const data = await response.json();
+
+      const steps = data.analyzedInstructions?.[0]?.steps || [];
+
+      // Extract instructions
+      const instructions = steps.map((step) => step.step);
+
+      // Collect equipment from all steps
+      const equipmentSet = new Set();
+      steps.forEach((step) => {
+        step.equipment?.forEach((tool) => {
+          equipmentSet.add(tool.name);
+        });
+      });
 
       const recipeDetails = {
         id: data.id,
         title: data.title,
         image: data.image,
         summary: data.summary,
-        ingredients: data.extendedIngredients.map((ingredient) => ingredient.original),
-        instructions: data.instructions,
+        ingredients: data.extendedIngredients.map((i) => i.original),
+        instructions,
+        equipment: Array.from(equipmentSet),
         favorite: false,
       };
 
@@ -62,10 +75,8 @@ export async function fetchRecipeDetails() {
     }
 
     saveApiRecipesDetails(apiRecipesDetails);
-    console.log("Fetched and saved recipe details:", apiRecipesDetails);
   } catch (error) {
     console.error("Error fetching recipe details:", error);
   }
 }
-
 export let userRecipes = [{}];
