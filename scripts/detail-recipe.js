@@ -11,7 +11,7 @@ const recipeId = Number(params.get("id"));
 
 async function loadRecipeDetail() {
   if (apiRecipesDetails.length === 0) {
-    await fetchRecipeDetails(); // Wait for it to finish
+    await fetchRecipeDetails();
   }
 
   const recipe = apiRecipesDetails.find((r) => r.id === recipeId);
