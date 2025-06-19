@@ -26,6 +26,7 @@
 .name-recipe {
   color: var(--primary-color);
   font-size: 2rem;
+  width: 40vh;
 }
 
 .recipe-summary {
@@ -74,4 +75,15 @@
 
 .recipe-summary {
   font-weight: 500;
+}
+
+.credits-recipe {
+  margin-top: 1rem;
+  text-align: center;
+  color: var(--secondary-color);
+}
+
+.credits-recipe a {
+  color: var(--primary-color);
+  text-decoration: none;
 }

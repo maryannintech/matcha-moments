@@ -13,7 +13,7 @@ export function renderRecipes(recipe) {
                 : `<i class="bx bx-star"></i>`
             }
         </div>
-        <p class="category js-category">iced drinks</p>
+        <p class="category js-category"></p>
         </div>
         <p class="recipe-name js-recipe-name">${recipe.title}</p>
     </div>
@@ -68,7 +68,12 @@ export function renderRecipeDetailCard(recipe) {
            ${
              recipe.equipment?.length
                ? recipe.equipment
-                   .map((tool) => `<li class="tools-li">${capitalizeFirstLetter(tool)}</li>`)
+                   .map(
+                     (tool) =>
+                       `<li class="tools-li">${capitalizeFirstLetter(
+                         tool
+                       )}</li>`
+                   )
                    .join("")
                : "<li>No tools listed.</li>"
            }
@@ -86,6 +91,10 @@ export function renderRecipeDetailCard(recipe) {
               : "<li>No instructions available.</li>"
           }
           </ol>
+          <p class="credits-recipe">
+        Powered by
+        <a href="https://spoonacular.com" target="_blank">Spoonacular API</a>
+      </p>
         </div>
       </div>
   `;
