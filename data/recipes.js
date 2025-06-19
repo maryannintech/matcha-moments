@@ -20,7 +20,7 @@ export let apiRecipesDetails = localStorage.getItem("apiRecipesDetails")
 export async function fetchRecipes() {
   try {
     const response = await fetch(
-      `https://api.spoonacular.com/recipes/complexSearch?query=matcha&number=5&apiKey=${myApiKey}`
+      `https://api.spoonacular.com/recipes/complexSearch?query=matcha&number=10&apiKey=${myApiKey}`
     );
     const data = await response.json();
     const results = data.results || [];

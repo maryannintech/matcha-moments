@@ -1,9 +1,14 @@
 .recipe-details-container {
-    display: flex;
-    padding: 2vh 5%;
-    gap: 2rem;
-    flex-wrap: wrap;
-    justify-content: center;
+  display: flex;
+  padding: 2vh 5%;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.logo-recipe-nav-bar {
+  max-width: 120px;
+  min-width: 50px;
 }
 
 .recipe-image {
