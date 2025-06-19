@@ -19,9 +19,8 @@ export function renderRecipes(recipe) {
   return recipeCardHTML;
 }
 
-export function renderRecipeDetails(recipe) {
+export function renderRecipeDetailCard(recipe) {
   const recipeDetailHTML = `
-     <div class="recipe-details-container js-recipe-details-container">
       <div class="details js-details">
         <div class="recipe-image-info">
           <img
@@ -84,7 +83,6 @@ export function renderRecipeDetails(recipe) {
           </ol>
         </div>
       </div>
-    </div>
   `;
 
   return recipeDetailHTML;

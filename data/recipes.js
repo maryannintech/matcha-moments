@@ -40,4 +40,32 @@ export async function fetchRecipes() {
   }
 }
 
+export async function fetchRecipeDetails() {
+  try {
+    for (const recipe of apiRecipes) {
+      const response = await fetch(
+        `https://api.spoonacular.com/recipes/${recipe.id}/information?apiKey=${myApiKey}`
+      );
+      const data = await response.json();
+
+      const recipeDetails = {
+        id: data.id,
+        title: data.title,
+        image: data.image,
+        summary: data.summary,
+        ingredients: data.extendedIngredients.map((ingredient) => ingredient.original),
+        instructions: data.instructions,
+        favorite: false,
+      };
+
+      apiRecipesDetails.push(recipeDetails);
+    }
+
+    saveApiRecipesDetails(apiRecipesDetails);
+    console.log("Fetched and saved recipe details:", apiRecipesDetails);
+  } catch (error) {
+    console.error("Error fetching recipe details:", error);
+  }
+}
+
 export let userRecipes = [{}];
