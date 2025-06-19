@@ -11,7 +11,7 @@ export function renderRecipeList() {
   document.querySelectorAll(".js-recipe-card").forEach((recipeCard) => {
     recipeCard.addEventListener("click", () => {
       const recipeId = recipeCard.dataset.recipeId;
-      console.log("Recipe card clicked:", recipeId);
+      window.location.href = `recipe.html?id=${recipeId}`;
     })
   })
 }
