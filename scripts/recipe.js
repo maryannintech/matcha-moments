@@ -7,14 +7,7 @@ export function renderRecipes(recipe) {
      recipe.id
    }" style="background-image: url('${recipe.image}');">
         <div class="recipe-star-category">
-        <div class="favorite-icon js-favorite-icon">
-            ${
-              recipe.favorite == "true"
-                ? `<i class="bx bxs-star"></i>`
-                : `<i class="bx bx-star"></i>`
-            }
-        </div>
-        <p class="category js-category"></p>
+        <p class="category js-category">${recipe.category}</p>
         </div>
         <p class="recipe-name js-recipe-name">${recipe.title}</p>
     </div>
@@ -35,7 +28,7 @@ export function renderRecipeDetailCard(recipe) {
           <p class="recipe-summary js-recipe-summary">
           ${
             recipe.summary
-              ? recipe.summary.split(".")[0] // Split at the first link to avoid HTML tags
+              ? recipe.summary.split(".")[0] 
               : "No summary? Don't matcha-bout it, dive in!"
           }
           </p>

@@ -65,10 +65,8 @@
 }
 
 .recipe-star-category {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.9rem;
+  width: fit-content;
+  right: 0;
 }
 
 .category {

@@ -60,15 +60,40 @@ export async function fetchRecipeDetails() {
         });
       });
 
+      const ingredients = data.extendedIngredients.map((i) =>
+        i.original.toLowerCase()
+      );
+
+      // Category logic
+      let category = "others";
+      const joinedIngredients = ingredients.join(" ");
+      if (
+        joinedIngredients.includes("ice") ||
+        joinedIngredients.includes("frozen")
+      ) {
+        category = "iced drinks";
+      } else if (
+        joinedIngredients.includes("hot water") ||
+        joinedIngredients.includes("boiling water")
+      ) {
+        category = "hot drinks";
+      } else if (
+        joinedIngredients.includes("flour") ||
+        joinedIngredients.includes("baking powder")
+      ) {
+        category = "deserts";
+      }
+
       const recipeDetails = {
         id: data.id,
         title: data.title,
         image: data.image,
         summary: data.summary,
-        ingredients: data.extendedIngredients.map((i) => i.original),
+        ingredients,
         instructions,
         equipment: Array.from(equipmentSet),
         favorite: false,
+        category, // newly added
       };
 
       apiRecipesDetails.push(recipeDetails);

@@ -1,19 +1,23 @@
-import { apiRecipes, fetchRecipes } from "../data/recipes.js";
+import {
+  apiRecipes,
+  fetchRecipes,
+  fetchRecipeDetails,
+  apiRecipesDetails,
+} from "../data/recipes.js";
 import { renderRecipes } from "./recipe.js";
 
-
 async function loadRecipes() {
-  if (apiRecipes.length === 0) {
-    await fetchRecipes(); 
+  if (apiRecipesDetails.length === 0) {
+    await fetchRecipeDetails();
   }
-  console.log("Recipes loaded:", apiRecipes);
 }
 
 loadRecipes();
 
 export function renderRecipeList() {
   const recipeListContainer = document.querySelector(".recipes-container");
-  apiRecipes.forEach((recipe) => {
+  apiRecipesDetails.forEach((recipe) => {
+    console.log("Recipe details:", recipe);
     const recipeCardHTML = renderRecipes(recipe);
     recipeListContainer.innerHTML += recipeCardHTML;
   });
@@ -21,6 +25,10 @@ export function renderRecipeList() {
     recipeCard.addEventListener("click", () => {
       const recipeId = recipeCard.dataset.recipeId;
       window.location.href = `recipe.html?id=${recipeId}`;
-    })
-  })
+    });
+  });
+
+  document.querySelectorAll(".js-favorite-icon").forEach((favoriteIcon) => {
+    console.log("Favorite icon:", favoriteIcon);
+  });
 }
