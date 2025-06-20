@@ -1,7 +1,12 @@
-import {apiRecipes, fetchRecipes } from "./data/recipes.js";
-import {renderRecipeList} from "./scripts/recipe-list.js"
+import { apiRecipes, fetchRecipes } from "./data/recipes.js";
+import { renderRecipeList } from "./scripts/recipe-list.js";
+import "./scripts/nav-bar.js";
 
-if (apiRecipes.length === 0) {
+async function loadRecipes() {
+  if (apiRecipes.length === 0) {
     fetchRecipes();
+  }
 }
+
+loadRecipes();
 renderRecipeList();

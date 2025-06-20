@@ -1,4 +1,5 @@
 import { capitalizeFirstLetter } from "./utils/format-text.js";
+import './nav-bar.js'
 
 export function renderRecipes(recipe) {
   const recipeCardHTML = `
@@ -85,7 +86,7 @@ export function renderRecipeDetailCard(recipe) {
               ? recipe.instructions
                   .filter((step) => step.trim() !== "")
                   .map(
-                    (step) => `<li class="instructions-li">${step.trim()}.</li>`
+                    (step) => `<li class="instructions-li">${step.trim()}</li>`
                   )
                   .join("")
               : "<li>No instructions available.</li>"

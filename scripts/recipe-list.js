@@ -1,4 +1,4 @@
-import { apiRecipes } from "../data/recipes.js";
+import { apiRecipes, fetchRecipes } from "../data/recipes.js";
 import { renderRecipes } from "./recipe.js";
 
 
