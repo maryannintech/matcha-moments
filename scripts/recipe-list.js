@@ -4,6 +4,7 @@ import {
   fetchRecipes,
 } from "../data/recipes.js";
 import { renderRecipes } from "./recipe.js";
+import { renderRecipesByCategory } from "./filter.js";
 
 export async function loadRecipes() {
   if (apiRecipesDetails.length === 0) {
@@ -20,6 +21,13 @@ const recipeDetailListContainer = document.querySelector(
   ".js-recipe-details-container"
 );
 
+document.querySelectorAll(".filter-btn").forEach((filterBtn) => {
+  filterBtn.addEventListener("click", () => {
+    const filterId = filterBtn.dataset.filterId;
+    renderRecipesByCategory(filterId);
+  })
+})
+
 export function renderRecipeList() {
   apiRecipesDetails.forEach((recipe) => {
     const recipeCardHTML = renderRecipes(recipe);
@@ -28,7 +36,7 @@ export function renderRecipeList() {
   recipeCardClick();
 }
 
-function recipeCardClick() {
+export function recipeCardClick() {
   document.querySelectorAll(".js-recipe-card").forEach((recipeCard) => {
     recipeCard.addEventListener("click", () => {
       const recipeId = recipeCard.dataset.recipeId;
