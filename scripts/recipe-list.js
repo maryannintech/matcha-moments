@@ -2,6 +2,7 @@ import {
   fetchRecipeDetails,
   apiRecipesDetails,
   fetchRecipes,
+  allRecipes
 } from "../data/recipes.js";
 import { renderRecipes } from "./recipe.js";
 import { renderRecipesByCategory } from "./filter.js";
@@ -48,7 +49,7 @@ export function recipeCardClick() {
 export function renderFavoriteRecipes() {
   if (recipeListContainer) {
     recipeListContainer.innerHTML = "";
-    apiRecipesDetails.forEach((recipe) => {
+    allRecipes.forEach((recipe) => {
       if (recipe.favorite) {
         const favoriteRecipeCardHTML = renderRecipes(recipe);
         recipeListContainer.innerHTML += favoriteRecipeCardHTML;
@@ -56,7 +57,7 @@ export function renderFavoriteRecipes() {
     });
   } else if (recipeDetailListContainer) {
     recipeDetailListContainer.innerHTML = "";
-    apiRecipesDetails.forEach((recipe) => {
+    allRecipes.forEach((recipe) => {
       if (recipe.favorite) {
         const favoriteRecipeCardHTML = renderRecipes(recipe);
         recipeDetailListContainer.innerHTML += favoriteRecipeCardHTML;

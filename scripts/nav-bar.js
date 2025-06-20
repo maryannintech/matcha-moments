@@ -13,6 +13,11 @@ document.querySelector(".bxs-menu-wide").addEventListener("click", () => {
   openNavBarElement.classList.remove("hide");
 });
 
+document.querySelector(".js-my-favorites-nav-bar").addEventListener("click", () => {
+  openNavBarElement.classList.add("hide");
+  renderFavoriteRecipes();
+})
+
 document.querySelector(".js-close-nav-bar").addEventListener("click", () => {
   openNavBarElement.classList.add("hide");
 });
