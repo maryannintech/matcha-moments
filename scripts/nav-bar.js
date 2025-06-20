@@ -19,7 +19,7 @@ document.querySelector(".js-my-favorites-nav-bar").addEventListener("click", () 
 })
 
 document.querySelector(".js-close-nav-bar").addEventListener("click", () => {
-  openNavBarElement.classList.add("hide");
+  openNavBarElement.classList.add("hide")
 });
 
 document
