@@ -73,6 +73,11 @@
   color: var(--primary-color);
 }
 
+.bxs-star {
+  color: var(--primary-color);
+  font-size: 1.7rem;
+}
+
 .recipe-summary {
   font-weight: 500;
 }

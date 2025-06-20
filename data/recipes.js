@@ -49,10 +49,8 @@ export async function fetchRecipeDetails() {
 
       const steps = data.analyzedInstructions?.[0]?.steps || [];
 
-      // Extract instructions
       const instructions = steps.map((step) => step.step);
 
-      // Collect equipment from all steps
       const equipmentSet = new Set();
       steps.forEach((step) => {
         step.equipment?.forEach((tool) => {

@@ -26,6 +26,20 @@ export function renderRecipeDetail(recipe) {
   );
   recipeDetailContainer.innerHTML = renderRecipeDetailCard(recipe);
   document.title = `${recipe.title} | matcha moments`;
+
+  document.querySelectorAll(".js-favorite-icon").forEach((icon) => {
+    icon.addEventListener("click", () => {
+      const recipeId = Number(icon.dataset.favoriteId);
+      const recipe = apiRecipesDetails.find((r) => r.id === recipeId);
+      if (recipe) {
+        recipe.favorite = !recipe.favorite;
+        icon.classList.toggle("bxs-star");
+        icon.classList.toggle("bx-star");
+      } else {
+        console.error(`Recipe with ID ${recipeId} not found.`);
+      }
+    })
+  })
 }
 
 console.log("Recipe details rendered:", apiRecipesDetails);

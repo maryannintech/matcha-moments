@@ -35,8 +35,8 @@ export function renderRecipeDetailCard(recipe) {
           <div class="recipe-summary-star js-recipe-summary-star">
              ${
                recipe.favorite
-                 ? `<i class="bx bxs-star"></i>`
-                 : `<i class="bx bx-star"></i>`
+                 ? `<i class="bx js-favorite-icon bxs-star" data-favorite-id=${recipe.id}></i>`
+                 : `<i class="bx js-favorite-icon bx-star" data-favorite-id=${recipe.id}></i>`
              }
             <p>save this recipe?</p>
           </div>
