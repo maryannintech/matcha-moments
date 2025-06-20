@@ -74,7 +74,7 @@ nav {
     height: 95%;
     background-color: var(--primary-color);
     color: var(--bg-color);
-    font-size: 1rem;
+    font-size: 1.2rem;
 }
 
 .open-nav-bar p {
@@ -83,6 +83,20 @@ nav {
 }
 
 .open-nav-bar p:hover {
+    color: var(--accent-color);
+}
+
+.close-nav-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 2vh;
+    cursor: pointer;
+    font-size: 1.7rem;
+    color: var(--bg-color);
+}
+
+.close-nav-bar:hover {
     color: var(--accent-color);
 }
 
