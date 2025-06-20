@@ -1,5 +1,3 @@
-import { renderRecipes } from "./recipe.js";
-import { apiRecipesDetails } from "../data/recipes.js";
 import { renderFavoriteRecipes } from "./recipe-list.js";
 
 document.querySelector(".bxs-home-alt").addEventListener("click", () => {
@@ -7,7 +5,6 @@ document.querySelector(".bxs-home-alt").addEventListener("click", () => {
 });
 
 const openNavBarElement = document.querySelector(".js-open-nav-bar");
-const recipeListElement = document.querySelector(".js-recipe-list");
 
 document.querySelector(".bxs-menu-wide").addEventListener("click", () => {
   openNavBarElement.classList.remove("hide");

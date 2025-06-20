@@ -44,11 +44,12 @@
 }
 
 .search-bar {
-  max-width: 300px;
-  min-width: 200px;
+  max-width: 400px;
+  min-width: 250px;
   border: 0.2rem solid var(--primary-color);
   border-radius: 20px;
   padding: 0.5rem 1rem;
+  font-size: 1rem;
 }
 
 .search-bar:focus {
@@ -70,12 +71,14 @@ nav {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  right: 0;
+  width: 100vw;
   height: 95%;
   background-color: var(--primary-color);
   color: var(--bg-color);
   font-size: 1.2rem;
   animation: slideDown 0.3s ease forwards;
+  margin: 0;
 }
 
 .open-nav-bar p {
