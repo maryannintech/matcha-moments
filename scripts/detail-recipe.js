@@ -1,7 +1,8 @@
 import {
   apiRecipesDetails,
   fetchRecipeDetails,
-  updateFavoriteStatus
+  updateFavoriteStatus,
+
 } from "../data/recipes.js";
 import { renderRecipeDetailCard, renderRecipes } from "./recipe.js";
 

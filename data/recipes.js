@@ -1,5 +1,17 @@
 import { myApiKey } from "../secret.js";
 
+export let allRecipes = localStorage.getItem("allRecipes")
+  ? JSON.parse(localStorage.getItem("allRecipes"))
+  : [];
+
+export function saveAllRecipes(recipes) {
+  localStorage.setItem("allRecipes", JSON.stringify(recipes));
+}
+
+function saveUserRecipes(recipes) {
+  localStorage.setItem("allRecipes", JSON.stringify(recipes));
+}
+
 export let apiRecipes = localStorage.getItem("apiRecipes")
   ? JSON.parse(localStorage.getItem("apiRecipes"))
   : [];
@@ -40,8 +52,16 @@ export function updateFavoriteStatus(recipeId, isFavorite) {
   if (recipe) {
     recipe.favorite = isFavorite;
     saveApiRecipesDetails(apiRecipesDetails);
-  } else {
-    console.error(`Recipe with ID ${recipeId} not found.`);
+  }
+
+  const allRecipe = allRecipes.find((r) => r.id === recipeId);
+  if (allRecipe) {
+    allRecipe.favorite = isFavorite;
+    saveAllRecipes(allRecipes);
+  }
+
+  if (!recipe && !allRecipe) {
+    console.error(`Recipe with ID ${recipeId} not found in either list.`);
   }
 }
 
@@ -116,4 +136,3 @@ function determineCategory(ingredients) {
   }
   return category;
 }
-export let userRecipes = [{}];
