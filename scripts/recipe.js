@@ -7,6 +7,11 @@ export function renderRecipes(recipe) {
      recipe.id
    }" style="background-image: url('${recipe.image}');">
         <div class="recipe-star-category">
+         ${
+               recipe.favorite
+                 ? `<i class="bx js-favorite-icon bxs-star favorite-star-recipe-list" data-favorite-id=${recipe.id}></i>`
+                 : `<i class="bx js-favorite-icon bx-star" data-favorite-id=${recipe.id}></i>`
+             }
         <p class="category js-category">${recipe.category}</p>
         </div>
         <p class="recipe-name js-recipe-name">${recipe.title}</p>

@@ -1,3 +1,5 @@
+import { renderRecipes } from "./recipe.js";
+
 document.querySelector(".bxs-home-alt").addEventListener("click", () => {
   window.location.href = "index.html";
 });
@@ -11,3 +13,7 @@ document.querySelector(".bxs-menu-wide").addEventListener("click", () => {
 document.querySelector(".js-close-nav-bar").addEventListener("click", () => {
   openNavBarElement.classList.add("hide");
 });
+
+document.querySelector(".js-favorite-icon-nav-bar").addEventListener("click", () => {
+  console.log("Favorite icon clicked in nav bar");
+})

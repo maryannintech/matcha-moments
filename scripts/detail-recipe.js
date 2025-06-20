@@ -3,7 +3,7 @@ import {
   fetchRecipeDetails,
   updateFavoriteStatus
 } from "../data/recipes.js";
-import { renderRecipeDetailCard } from "./recipe.js";
+import { renderRecipeDetailCard, renderRecipes } from "./recipe.js";
 
 const params = new URLSearchParams(window.location.search);
 const recipeId = Number(params.get("id"));
@@ -37,6 +37,7 @@ export function renderRecipeDetail(recipe) {
         icon.classList.toggle("bxs-star");
         icon.classList.toggle("bx-star");
         updateFavoriteStatus(recipeId, recipe.favorite);
+        renderRecipeDetail(recipe);
       } else {
         console.error(`Recipe with ID ${recipeId} not found.`);
       }

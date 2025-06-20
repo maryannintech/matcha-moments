@@ -2,7 +2,6 @@ import {
   fetchRecipeDetails,
   apiRecipesDetails,
   fetchRecipes,
-  apiRecipes
 } from "../data/recipes.js";
 import { renderRecipes } from "./recipe.js";
 

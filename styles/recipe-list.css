@@ -54,18 +54,20 @@
   cursor: pointer;
 }
 
+.recipe-card:hover {
+  box-shadow: 0 0 10px var(--primary-color);
+}
+
 .bx-star {
   color: var(--bg-color);
   font-size: 1.9rem;
   cursor: pointer;
 }
 
-.bx-star:hover {
-  color: var(--primary-color);
-}
-
 .recipe-star-category {
-  width: fit-content;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
   right: 0;
 }
 
@@ -85,5 +87,11 @@
   border-radius: 1rem;
   position: absolute;
   bottom: 0;
-  margin-bottom: 1rem;;
+  margin-bottom: 1rem;
+}
+
+
+.favorite-star-recipe-list::before {
+  color: var(--bg-color);
+  font-size: 2rem;
 }
