@@ -78,5 +78,7 @@ export function renderFavoriteRecipes() {
       </p>
     `;
   }
+
+  document.title = "my favorites | matcha moments";
   recipeCardClick();
 }
