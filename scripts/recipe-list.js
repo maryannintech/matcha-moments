@@ -16,6 +16,9 @@ export async function loadRecipes() {
 loadRecipes();
 
 const recipeListContainer = document.querySelector(".recipes-container");
+const recipeDetailListContainer = document.querySelector(
+  ".js-recipe-details-container"
+);
 
 export function renderRecipeList() {
   apiRecipesDetails.forEach((recipe) => {
@@ -35,25 +38,22 @@ function recipeCardClick() {
 }
 
 export function renderFavoriteRecipes() {
-  recipeListContainer.innerHTML = "";
-  apiRecipesDetails.forEach((recipe) => {
-    if (recipe.favorite) {
-      const favoriteRecipeCardHTML = renderRecipes(recipe);
-      recipeListContainer.innerHTML += favoriteRecipeCardHTML;
-    }
-  });
-
-  recipeCardClick();
-}
-
-export function renderRecipesByCategory(category) {
-  recipeListContainer.innerHTML = "";
-  apiRecipesDetails.forEach((recipe) => {
-    if (recipe.category === category) {
-      const categoryRecipeCardHTML = renderRecipes(recipe);
-      recipeListContainer.innerHTML += categoryRecipeCardHTML;
-    }
-  });
-
+  if (recipeListContainer) {
+    recipeListContainer.innerHTML = "";
+    apiRecipesDetails.forEach((recipe) => {
+      if (recipe.favorite) {
+        const favoriteRecipeCardHTML = renderRecipes(recipe);
+        recipeListContainer.innerHTML += favoriteRecipeCardHTML;
+      }
+    });
+  } else if (recipeDetailListContainer) {
+    recipeDetailListContainer.innerHTML = "";
+    apiRecipesDetails.forEach((recipe) => {
+      if (recipe.favorite) {
+        const favoriteRecipeCardHTML = renderRecipes(recipe);
+        recipeDetailListContainer.innerHTML += favoriteRecipeCardHTML;
+      }
+    });
+  }
   recipeCardClick();
 }

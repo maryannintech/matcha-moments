@@ -20,7 +20,5 @@ document.querySelector(".js-close-nav-bar").addEventListener("click", () => {
 document
   .querySelector(".js-favorite-icon-nav-bar")
   .addEventListener("click", () => {
-    console.log("Favorite icon clicked in nav bar");
     renderFavoriteRecipes();
-    window.location.href = "index.html#favorites";
   });
