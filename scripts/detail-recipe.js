@@ -1,6 +1,7 @@
 import {
   apiRecipesDetails,
   fetchRecipeDetails,
+  updateFavoriteStatus
 } from "../data/recipes.js";
 import { renderRecipeDetailCard } from "./recipe.js";
 
@@ -35,6 +36,7 @@ export function renderRecipeDetail(recipe) {
         recipe.favorite = !recipe.favorite;
         icon.classList.toggle("bxs-star");
         icon.classList.toggle("bx-star");
+        updateFavoriteStatus(recipeId, recipe.favorite);
       } else {
         console.error(`Recipe with ID ${recipeId} not found.`);
       }

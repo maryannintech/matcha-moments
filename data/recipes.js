@@ -35,6 +35,16 @@ function saveApiRecipesDetails(details) {
   localStorage.setItem("apiRecipesDetails", JSON.stringify(details));
 }
 
+export function updateFavoriteStatus(recipeId, isFavorite) {
+  const recipe = apiRecipesDetails.find((r) => r.id === recipeId);
+  if (recipe) {
+    recipe.favorite = isFavorite;
+    saveApiRecipesDetails(apiRecipesDetails);
+  } else {
+    console.error(`Recipe with ID ${recipeId} not found.`);
+  }
+}
+
 export let apiRecipesDetails = localStorage.getItem("apiRecipesDetails")
   ? JSON.parse(localStorage.getItem("apiRecipesDetails"))
   : [];
