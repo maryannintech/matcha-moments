@@ -8,14 +8,6 @@ function saveApiRecipes(recipe) {
   localStorage.setItem("apiRecipes", JSON.stringify(recipe));
 }
 
-function saveApiRecipesDetails(details) {
-  localStorage.setItem("apiRecipesDetails", JSON.stringify(details));
-}
-
-export let apiRecipesDetails = localStorage.getItem("apiRecipesDetails")
-  ? JSON.parse(localStorage.getItem("apiRecipesDetails"))
-  : [];
-
 export async function fetchRecipes() {
   try {
     const response = await fetch(
@@ -38,6 +30,14 @@ export async function fetchRecipes() {
     console.error("Error fetching recipes:", error);
   }
 }
+
+function saveApiRecipesDetails(details) {
+  localStorage.setItem("apiRecipesDetails", JSON.stringify(details));
+}
+
+export let apiRecipesDetails = localStorage.getItem("apiRecipesDetails")
+  ? JSON.parse(localStorage.getItem("apiRecipesDetails"))
+  : [];
 
 export async function fetchRecipeDetails() {
   try {
@@ -67,22 +67,7 @@ export async function fetchRecipeDetails() {
       // Category logic
       let category = "others";
       const joinedIngredients = ingredients.join(" ");
-      if (
-        joinedIngredients.includes("ice") ||
-        joinedIngredients.includes("frozen")
-      ) {
-        category = "iced drinks";
-      } else if (
-        joinedIngredients.includes("hot water") ||
-        joinedIngredients.includes("boiling water")
-      ) {
-        category = "hot drinks";
-      } else if (
-        joinedIngredients.includes("flour") ||
-        joinedIngredients.includes("baking powder")
-      ) {
-        category = "deserts";
-      }
+      category = determineCategory(joinedIngredients);
 
       const recipeDetails = {
         id: data.id,
@@ -103,5 +88,24 @@ export async function fetchRecipeDetails() {
   } catch (error) {
     console.error("Error fetching recipe details:", error);
   }
+}
+
+function determineCategory(ingredients) {
+  let category = "others";
+
+  if (ingredients.includes("ice") || ingredients.includes("frozen")) {
+    category = "ice drinks";
+  } else if (
+    ingredients.includes("hot water") ||
+    ingredients.includes("boiling water")
+  ) {
+    category = "hot drinks";
+  } else if (
+    ingredients.includes("flour") ||
+    ingredients.includes("baking powder")
+  ) {
+    category = "deserts";
+  }
+  return category;
 }
 export let userRecipes = [{}];

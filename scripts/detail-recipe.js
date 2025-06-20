@@ -1,6 +1,5 @@
 import {
   apiRecipesDetails,
-  apiRecipes,
   fetchRecipeDetails,
 } from "../data/recipes.js";
 import { renderRecipeDetailCard } from "./recipe.js";

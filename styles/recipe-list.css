@@ -87,11 +87,3 @@
   bottom: 0;
   margin-bottom: 1rem;;
 }
-
-.image-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.3); /* adjust darkness */
-  backdrop-filter: blur(2px);
-  z-index: 1;
-}
