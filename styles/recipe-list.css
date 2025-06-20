@@ -66,7 +66,7 @@
 
 .recipe-star-category {
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
   align-items: center;
   right: 0;
 }
@@ -90,6 +90,17 @@
   margin-bottom: 1rem;
 }
 
+.feedback-category {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 1.3rem;
+  color: var(--secondary-color);
+}
+
+.feedback-category-emphasis {
+  display: block;
+  color: var(--accent-color);
+}
 
 .favorite-star-recipe-list::before {
   color: var(--bg-color);
