@@ -85,6 +85,26 @@
             <option value="desert">desert</option>
             <option value="others">others</option>
           </select>
+          <label for="recipe-ingredients-input">Ingredients:</label>
+          <textarea
+            id="recipe-ingredients-input"
+            name="recipe-ingredients"
+            class="js-recipe-ingredients-input"
+            required
+            minlength="10"
+            maxlength="500"
+            placeholder="Enter ingredients with measurements, separated by commas"
+          ></textarea>
+          <label for="recipe-instructions-input">Instructions:</label>
+          <textarea
+            id="recipe-instructions-input"
+            name="recipe-instructions"
+            class="js-recipe-instructions-input"
+            required
+            minlength="20"
+            maxlength="1000"
+            placeholder="Enter step-by-step instructions for your recipe"
+          ></textarea>
           <label for="recipe-summary-input">Recipe summary:</label>
           <textarea
             id="recipe-summary-input"
@@ -93,7 +113,10 @@
             placeholder="Enter a short summary of your recipe"
             class="recipe-summary-input js-recipe-summary-input"
           ></textarea>
-          <button type="submit" class="upload-recipe-btn form-btn js-upload-recipe-btn">
+          <button
+            type="submit"
+            class="upload-recipe-btn form-btn js-upload-recipe-btn"
+          >
             Upload Recipe
           </button>
           <button

@@ -19,7 +19,6 @@ form {
   margin-top: 2vh;
   margin-bottom: 2vh;
   background-color: var(--main-bg);
-  box-sizing: border-box;
   animation: softPopIn 0.4s ease forwards;
   opacity: 0;
   padding: 3vh 2vw;
