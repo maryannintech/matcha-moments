@@ -1,5 +1,5 @@
 import { renderRecipeList } from "./scripts/recipe-list.js";
-import { allRecipes, saveAllRecipes } from "./data/recipes.js";
+import { allRecipes, saveAllRecipes, userRecipes, apiRecipesDetails } from "./data/recipes.js";
 import "./scripts/nav-bar.js";
 
 if (allRecipes.length === 0 && apiRecipesDetails.length > 0) {
@@ -8,3 +8,7 @@ if (allRecipes.length === 0 && apiRecipesDetails.length > 0) {
 }
 
 renderRecipeList();
+
+
+
+console.log("userRecipes:", userRecipes);

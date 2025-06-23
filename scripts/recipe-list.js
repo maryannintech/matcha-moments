@@ -34,7 +34,7 @@ document.querySelectorAll(".filter-btn").forEach((filterBtn) => {
 });
 
 export function renderRecipeList() {
-  apiRecipesDetails.forEach((recipe) => {
+  allRecipes.forEach((recipe) => {
     const recipeCardHTML = renderRecipes(recipe);
     recipeListContainer.innerHTML += recipeCardHTML;
   });

@@ -11,27 +11,21 @@ export function saveAllRecipes(recipes) {
 
 // user recipes
 export let userRecipes = localStorage.getItem("userRecipes")
-  ? JSON.parse(localStorage.getItem("userRecipes")) : [];
-
-function saveUserRecipes(recipes) {
-  localStorage.setItem("allRecipes", JSON.stringify(recipes));
-}
+  ? JSON.parse(localStorage.getItem("userRecipes"))
+  : [];
 
 export function addUserRecipe(recipe) {
-  // Check if the recipe already exists
   const existingRecipe = userRecipes.find((r) => r.title === recipe.title);
   if (existingRecipe) {
     console.error("Recipe already exists:", recipe.title);
     return;
   }
 
-  // Add the new recipe to the userRecipes array
-  userRecipes.push(recipe);
-  saveUserRecipes(userRecipes);
+  allRecipes.push(recipe);
+  saveAllRecipes(allRecipes);
+
   console.log("User recipe added:", recipe);
 }
-
-// api recipes
 
 export let apiRecipes = localStorage.getItem("apiRecipes")
   ? JSON.parse(localStorage.getItem("apiRecipes"))
@@ -139,10 +133,6 @@ export function updateFavoriteStatus(recipeId, isFavorite) {
     console.error(`Recipe with ID ${recipeId} not found in either list.`);
   }
 }
-
-
-
-
 
 function determineCategory(ingredients) {
   let category = "others";
