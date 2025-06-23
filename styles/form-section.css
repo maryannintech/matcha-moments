@@ -14,12 +14,15 @@ form {
   min-width: 220px;
   border-radius: 20px;
   border: 3px solid var(--secondary-color);
-  padding: 2vw 5vw;
   margin-left: auto;
   margin-right: auto;
   margin-top: 2vh;
+  margin-bottom: 2vh;
   background-color: var(--main-bg);
   box-sizing: border-box;
+  animation: softPopIn 0.4s ease forwards;
+  opacity: 0;
+  padding: 3vh 2vw;
 }
 
 form > p {
@@ -63,11 +66,27 @@ form > input:focus {
 }
 
 .form-btn {
-    font-size: 1rem;
-    background-color: var(--secondary-color);
-    border: none;
-    border-radius: 10px;
-    color: var(--bg-color);
-    padding: 1vw;
-    cursor: pointer;
+  font-size: 1rem;
+  background-color: var(--secondary-color);
+  border: none;
+  border-radius: 10px;
+  color: var(--bg-color);
+  padding: 1vh 2vw;
+  cursor: pointer;
+}
+
+.form-btn:hover {
+  background-color: var(--primary-color);
+  color: var(--bg-color);
+}
+
+@keyframes softPopIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
