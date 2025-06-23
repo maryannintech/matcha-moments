@@ -11,6 +11,7 @@ export function renderRecipesByCategory(category) {
 
   if (category === "all") {
     renderRecipeList();
+    document.title = "all recipes | matcha moments";
     return;
   }
 
@@ -26,12 +27,14 @@ export function renderRecipesByCategory(category) {
         No recipes found in this category.
       </p>
     `;
+    document.title = `${category} recipes | matcha moments`;
     return;
   }
 
   matchingRecipes.forEach((recipe) => {
     const categoryRecipeCardHTML = renderRecipes(recipe);
     recipeListContainer.innerHTML += categoryRecipeCardHTML;
+    document.title = `${recipe.category} recipes | matcha moments`;
   });
 
   recipeCardClick();
