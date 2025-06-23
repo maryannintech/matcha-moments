@@ -17,7 +17,19 @@ function saveUserRecipes(recipes) {
   localStorage.setItem("allRecipes", JSON.stringify(recipes));
 }
 
+export function addUserRecipe(recipe) {
+  // Check if the recipe already exists
+  const existingRecipe = userRecipes.find((r) => r.title === recipe.title);
+  if (existingRecipe) {
+    console.error("Recipe already exists:", recipe.title);
+    return;
+  }
 
+  // Add the new recipe to the userRecipes array
+  userRecipes.push(recipe);
+  saveUserRecipes(userRecipes);
+  console.log("User recipe added:", recipe);
+}
 
 // api recipes
 

@@ -44,10 +44,6 @@ select {
   text-align: center;
 }
 
-.recipe-image-input {
-
-}
-
 textarea {
   border: 0.2rem solid var(--secondary-color);
   border-radius: 20px;
