@@ -3,6 +3,7 @@ import {
   apiRecipesDetails,
   fetchRecipes,
   allRecipes,
+  apiRecipes,
 } from "../data/recipes.js";
 import { renderRecipes } from "./recipe.js";
 import { renderRecipesByCategory } from "./filter.js";

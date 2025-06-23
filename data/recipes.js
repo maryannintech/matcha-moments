@@ -21,8 +21,15 @@ export function addUserRecipe(recipe) {
     return;
   }
 
+  userRecipes.push(recipe);
+  localStorage.setItem("userRecipes", JSON.stringify(userRecipes));
+
+  allRecipes.push(recipe); 
+  saveAllRecipes(allRecipes);
+
   allRecipes.push(recipe);
   saveAllRecipes(allRecipes);
+  syncAllRecipes();
 
   console.log("User recipe added:", recipe);
 }
@@ -104,13 +111,16 @@ export async function fetchRecipeDetails() {
         instructions,
         equipment: Array.from(equipmentSet),
         favorite: false,
-        category, // newly added
+        category,
       };
 
       apiRecipesDetails.push(recipeDetails);
     }
 
     saveApiRecipesDetails(apiRecipesDetails);
+    syncAllRecipes();
+    saveAllRecipes(allRecipes);
+    
   } catch (error) {
     console.error("Error fetching recipe details:", error);
   }
@@ -151,4 +161,9 @@ function determineCategory(ingredients) {
     category = "deserts";
   }
   return category;
+}
+
+export function syncAllRecipes() {
+  allRecipes = [...userRecipes, ...apiRecipesDetails];
+  saveAllRecipes(allRecipes);
 }
