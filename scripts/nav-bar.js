@@ -26,5 +26,5 @@ document
   });
 
 document.querySelector(".js-logo-nav-bar").addEventListener("click", () => {
-  console.log("Logo clicked");
+  window.location.href = "index.html";
 })
