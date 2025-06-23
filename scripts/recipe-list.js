@@ -21,6 +21,9 @@ const recipeListContainer = document.querySelector(".recipes-container");
 const recipeDetailListContainer = document.querySelector(
   ".js-recipe-details-container"
 );
+const recipeListFormContainer = document.querySelector(
+  ".js-form-container"
+);
 const feedbackCategory = document.querySelector(".js-feedback-category");
 
 document.querySelectorAll(".filter-btn").forEach((filterBtn) => {
@@ -52,21 +55,24 @@ export function renderFavoriteRecipes() {
   feedbackCategory.innerHTML = "";
   if (recipeListContainer) {
     recipeListContainer.innerHTML = "";
-    favoriteRecipes = allRecipes.filter((recipe) => {
-      return recipe.favorite;
-    });
+    favoriteRecipes = returnFavoriteRecipes();
     favoriteRecipes.forEach((recipe) => {
       const favoriteRecipeCardHTML = renderRecipes(recipe);
       recipeListContainer.innerHTML += favoriteRecipeCardHTML;
     });
   } else if (recipeDetailListContainer) {
     recipeDetailListContainer.innerHTML = "";
-    favoriteRecipes = allRecipes.filter((recipe) => {
-      return recipe.favorite;
-    });
+    favoriteRecipes = returnFavoriteRecipes();
     favoriteRecipes.forEach((recipe) => {
       const favoriteRecipeCardHTML = renderRecipes(recipe);
       recipeDetailListContainer.innerHTML += favoriteRecipeCardHTML;
+    });
+  } else if (recipeListFormContainer) {
+    recipeListFormContainer.innerHTML = "";
+    favoriteRecipes = returnFavoriteRecipes();
+    favoriteRecipes.forEach((recipe) => {
+      const favoriteRecipeCardHTML = renderRecipes(recipe);
+      recipeListFormContainer.innerHTML += favoriteRecipeCardHTML;
     });
   }
 
@@ -81,4 +87,11 @@ export function renderFavoriteRecipes() {
 
   document.title = "my favorites | matcha moments";
   recipeCardClick();
+}
+
+function returnFavoriteRecipes() {
+  let favoriteRecipes = allRecipes.filter((recipe) => {
+    return recipe.favorite;
+  });
+  return favoriteRecipes;
 }

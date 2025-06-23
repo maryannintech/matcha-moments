@@ -10,6 +10,7 @@
 .logo-nav-bar {
   max-width: 120px;
   min-width: 50px;
+  cursor: pointer;
 }
 
 .right-elements-nav,

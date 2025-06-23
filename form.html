@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍵</text></svg>"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Itim&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/color-style-and-fonts.css" />
+    <link rel="stylesheet" href="styles/starting-screen.css" />
+    <link rel="stylesheet" href="styles/nav-bar.css" />
+    <link rel="stylesheet" href="styles/recipe-list.css" />
+    <link rel="stylesheet" href="styles/form-section.css" />
+    <link
+      href="https://cdn.boxicons.com/fonts/basic/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>upload your recipe | matcha moments</title>
+  </head>
+  <body>
+    <nav class="nav-bar js-nav-bar">
+      <div class="right-elements-nav">
+        <img
+          src="images/logo.png"
+          alt="Matcha Moments Logo"
+          class="logo-nav-bar js-logo-nav-bar"
+        />
+        <p class="matcha-moments-nav-bar">matcha moments</p>
+      </div>
+      <div class="left-elements-nav">
+        <input
+          type="text"
+          class="search-bar js-search-bar"
+          placeholder="Discover matcha recipes & more..."
+        />
+        <div class="left-elements-nav-icons">
+          <i class="bx bxs-home-alt"></i>
+          <i
+            class="bx bxs-star favorite-icon-nav-bar js-favorite-icon-nav-bar"
+          ></i>
+          <i class="bx bxs-menu-wide"></i>
+        </div>
+      </div>
+      <div class="open-nav-bar js-open-nav-bar hide">
+        <div class="close-nav-bar js-close-nav-bar">x</div>
+        <p class="my-favorites-nav-bar js-my-favorites-nav-bar">my favorites</p>
+        <p class="upload-recipe-nav-bar js-upload-recipe-nav-bar">
+          upload recipe
+        </p>
+        <p class="about-nav-bar js-about-nav-bar">about</p>
+      </div>
+    </nav>
+    <div class="form-section">
+      <div class="feedback-category js-feedback-category"></div>
+      <div class="form-container js-form-container">
+        <form>
+          <p class="form-title">Upload your recipe</p>
+          <label for="recipe-name-input">Recipe Name: </label>
+          <input
+            type="text"
+            id="recipe-name-input"
+            name="recipe-name"
+            class="js-recipe-name-input"
+            required
+            minlength="5"
+            maxlength="20"
+            placeholder="Enter recipe name"
+          />
+          <label for="recipe-category-input">Category</label>
+          <select
+            id="recipe-category-input"
+            name="recipe-category"
+            class="js-recipe-category-input"
+            required
+          >
+            <option value="ice">ice drink</option>
+            <option value="hot">hot drink</option>
+            <option value="desert">desert</option>
+            <option value="others">others</option>
+          </select>
+          <label for="recipe-summary-input">Recipe summary:</label>
+          <textarea
+            id="recipe-summary-input"
+            name="recipe-summary"
+            maxlength="150"
+            placeholder="Enter a short summary of your recipe"
+            class="recipe-summary-input js-recipe-summary-input"
+          ></textarea>
+          <button type="submit" class="upload-recipe-btn js-upload-recipe-btn">
+            Upload Recipe
+          </button>
+          <button
+            type="button"
+            class="reset-form-btn js-reset-form-btn"
+          >
+            Reset
+          </button>
+        </form>
+      </div>
+    </div>
+    <script src="scripts/form.js" type="module"></script>
+  </body>
+</html>

@@ -28,3 +28,7 @@ document
 document.querySelector(".js-logo-nav-bar").addEventListener("click", () => {
   window.location.href = "index.html";
 })
+
+document.querySelector(".js-upload-recipe-nav-bar").addEventListener("click", () => {
+  window.location.href = "form.html";
+})
