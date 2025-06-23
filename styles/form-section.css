@@ -9,7 +9,7 @@ form {
   display: flex;
   flex-direction: column;
   gap: 1vw;
-  width: 90%;
+  width: 35vw;
   max-width: 400px;
   min-width: 220px;
   border-radius: 20px;
@@ -44,6 +44,10 @@ select {
   text-align: center;
 }
 
+.recipe-image-input {
+
+}
+
 textarea {
   border: 0.2rem solid var(--secondary-color);
   border-radius: 20px;
@@ -52,6 +56,10 @@ textarea {
   text-align: center;
   resize: none;
   margin-bottom: 0.3rem;
+}
+
+small {
+  text-align: center;
 }
 
 option {

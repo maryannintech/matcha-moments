@@ -60,7 +60,7 @@
     <div class="form-section">
       <div class="feedback-category js-feedback-category"></div>
       <div class="form-container js-form-container">
-        <form>
+        <form class="js-upload-recipe-form">
           <p class="form-title">Upload your recipe</p>
           <label for="recipe-name-input">Recipe Name: </label>
           <input
@@ -73,6 +73,20 @@
             maxlength="20"
             placeholder="Enter recipe name"
           />
+          <label for="recipe-image-input">Recipe Image:</label>
+          <small
+            >Upload to Google Drive, set to 'Anyone with the link', then paste
+            here.</small
+          >
+          <input
+            type="text"
+            id="recipe-image-input"
+            name="recipe-image"
+            class="recipe-image-input js-recipe-image-input"
+            placeholder="Paste image link (Google Drive or URL)"
+            required
+          />
+
           <label for="recipe-category-input">Category</label>
           <select
             id="recipe-category-input"
@@ -103,7 +117,7 @@
             required
             minlength="20"
             maxlength="1000"
-            placeholder="Enter step-by-step instructions for your recipe"
+            placeholder="Enter step-by-step instructions for your recipe, seperated by new lines"
           ></textarea>
           <label for="recipe-summary-input">Recipe summary:</label>
           <textarea

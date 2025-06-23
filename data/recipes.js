@@ -1,5 +1,6 @@
 import { myApiKey } from "../secret.js";
 
+// all recipes
 export let allRecipes = localStorage.getItem("allRecipes")
   ? JSON.parse(localStorage.getItem("allRecipes"))
   : [];
@@ -8,9 +9,17 @@ export function saveAllRecipes(recipes) {
   localStorage.setItem("allRecipes", JSON.stringify(recipes));
 }
 
+// user recipes
+export let userRecipes = localStorage.getItem("userRecipes")
+  ? JSON.parse(localStorage.getItem("userRecipes")) : [];
+
 function saveUserRecipes(recipes) {
   localStorage.setItem("allRecipes", JSON.stringify(recipes));
 }
+
+
+
+// api recipes
 
 export let apiRecipes = localStorage.getItem("apiRecipes")
   ? JSON.parse(localStorage.getItem("apiRecipes"))
@@ -43,31 +52,14 @@ export async function fetchRecipes() {
   }
 }
 
-function saveApiRecipesDetails(details) {
-  localStorage.setItem("apiRecipesDetails", JSON.stringify(details));
-}
-
-export function updateFavoriteStatus(recipeId, isFavorite) {
-  const recipe = apiRecipesDetails.find((r) => r.id === recipeId);
-  if (recipe) {
-    recipe.favorite = isFavorite;
-    saveApiRecipesDetails(apiRecipesDetails);
-  }
-
-  const allRecipe = allRecipes.find((r) => r.id === recipeId);
-  if (allRecipe) {
-    allRecipe.favorite = isFavorite;
-    saveAllRecipes(allRecipes);
-  }
-
-  if (!recipe && !allRecipe) {
-    console.error(`Recipe with ID ${recipeId} not found in either list.`);
-  }
-}
-
+// api recipes details
 export let apiRecipesDetails = localStorage.getItem("apiRecipesDetails")
   ? JSON.parse(localStorage.getItem("apiRecipesDetails"))
   : [];
+
+function saveApiRecipesDetails(details) {
+  localStorage.setItem("apiRecipesDetails", JSON.stringify(details));
+}
 
 export async function fetchRecipeDetails() {
   try {
@@ -117,6 +109,28 @@ export async function fetchRecipeDetails() {
     console.error("Error fetching recipe details:", error);
   }
 }
+
+export function updateFavoriteStatus(recipeId, isFavorite) {
+  const recipe = apiRecipesDetails.find((r) => r.id === recipeId);
+  if (recipe) {
+    recipe.favorite = isFavorite;
+    saveApiRecipesDetails(apiRecipesDetails);
+  }
+
+  const allRecipe = allRecipes.find((r) => r.id === recipeId);
+  if (allRecipe) {
+    allRecipe.favorite = isFavorite;
+    saveAllRecipes(allRecipes);
+  }
+
+  if (!recipe && !allRecipe) {
+    console.error(`Recipe with ID ${recipeId} not found in either list.`);
+  }
+}
+
+
+
+
 
 function determineCategory(ingredients) {
   let category = "others";
