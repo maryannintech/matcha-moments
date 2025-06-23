@@ -59,7 +59,9 @@ option {
   color: var(--secondary-color);
 }
 
-form > input:focus {
+form > input:focus,
+select:focus,
+textarea:focus {
   outline: none;
   border-color: var(--primary-color);
 }
