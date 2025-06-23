@@ -24,3 +24,7 @@ document
   .addEventListener("click", () => {
     renderFavoriteRecipes();
   });
+
+document.querySelector(".js-logo-nav-bar").addEventListener("click", () => {
+  console.log("Logo clicked");
+})
