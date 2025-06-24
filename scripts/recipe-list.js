@@ -48,6 +48,12 @@ export function renderRecipeList() {
 
 export function recipeCardClick() {
   document.querySelectorAll(".js-recipe-card").forEach((recipeCard) => {
+    const bg = recipeCard.dataset.bg;
+    if (bg) {
+      recipeCard.style.backgroundImage = `url('${bg}')`;
+      recipeCard.style.backgroundSize = "cover";
+      recipeCard.style.backgroundPosition = "center";
+    }
     recipeCard.addEventListener("click", () => {
       const recipeId = recipeCard.dataset.recipeId;
       window.location.href = `recipe.html?id=${recipeId}`;

@@ -74,16 +74,20 @@
             placeholder="Enter recipe name"
           />
           <label for="recipe-image-input">Recipe Image:</label>
-          <small
-            >Upload to Google Drive, set to 'Anyone with the link', then paste
-            here.</small
-          >
+          <small class="form-note">
+            Use a public image link (e.g., Imgur, Postimages) ending in .jpg,
+            .jpeg, or .png. Make sure your image is accessible.
+            <span class="note-warning"
+              >Matcha Moments isn’t responsible for third-party content.</span
+            >
+          </small>
           <input
             type="text"
             id="recipe-image-input"
             name="recipe-image"
             class="recipe-image-input js-recipe-image-input"
-            placeholder="Paste image link (Google Drive or URL)"
+            placeholder="Paste image link (URL)"
+            pattern=".*\.(jpg|jpeg|png)$"
           />
 
           <label for="recipe-category-input">Category</label>
@@ -116,7 +120,8 @@
             required
             minlength="10"
             maxlength="500"
-            placeholder="Enter equipment needed, separated by commas"></textarea>
+            placeholder="Enter equipment needed, separated by commas"
+          ></textarea>
           <label for="recipe-instructions-input">Instructions:</label>
           <textarea
             id="recipe-instructions-input"

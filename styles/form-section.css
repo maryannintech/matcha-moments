@@ -63,10 +63,6 @@ textarea {
   margin-bottom: 0.3rem;
 }
 
-small {
-  text-align: center;
-}
-
 option {
   text-align: center;
   color: var(--secondary-color);
@@ -92,6 +88,15 @@ textarea:focus {
 .form-btn:hover {
   background-color: var(--primary-color);
   color: var(--bg-color);
+}
+
+.form-note {
+  color: var(--secondary-color);
+  padding: 0 1rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  text-align: justify;
 }
 
 @keyframes softPopIn {

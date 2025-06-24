@@ -30,7 +30,7 @@ recipeForm.addEventListener("submit", (event) => {
   const recipe = {
     id: crypto.randomUUID(),
     title: recipeName,
-    image: convertDriveLink(recipeImageLink),
+    image: recipeImageLink || "./images/default-recipe-img.png",
     summary: recipeSummary,
     equipment: recipeEquipment
       .split(",")
@@ -56,11 +56,3 @@ recipeForm.addEventListener("submit", (event) => {
     feedbackMessage.textContent = "";
   }, 2000);
 });
-
-function convertDriveLink(url) {
-  const match = url.match(/\/d\/(.*?)\//);
-  if (match && match[1]) {
-    return `https://drive.google.com/uc?export=view&id=${match[1]}`;
-  }
-  return url;
-}

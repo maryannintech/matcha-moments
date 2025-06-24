@@ -26,6 +26,7 @@ export function renderUserRecipeDetailCard(recipe) {
         <div class="recipe-image-info">
           <img
             src="${recipe.image || "./images/default-recipe-img.png"}"
+             onerror="this.src='./images/default-recipe-img.png'"
             alt="Recipe Image"
             class="recipe-image js-recipe-image"
           />
