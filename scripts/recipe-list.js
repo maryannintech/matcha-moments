@@ -5,7 +5,7 @@ import {
   apiRecipes,
   userRecipes,
 } from "../data/recipes.js";
-import { renderRecipes } from "./recipe.js";
+import { renderRecipes, renderUserRecipeCard } from "./recipe.js";
 import { renderRecipesByCategory } from "./filter.js";
 
 export async function loadRecipes() {
@@ -39,7 +39,7 @@ export function renderRecipeList() {
   });
 
   apiRecipesDetails.forEach((recipe) => {
-    const recipeCardHTML = renderRecipes(recipe);
+    const recipeCardHTML = renderUserRecipeCard(recipe);
     recipeListContainer.innerHTML += recipeCardHTML;
   });
 

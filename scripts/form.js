@@ -1,5 +1,5 @@
 import "./nav-bar.js";
-import { allRecipes, addUserRecipe } from "../data/recipes.js";
+import { addUserRecipe } from "../data/recipes.js";
 
 const feedbackMessage = document.querySelector(".js-feedback-category");
 feedbackMessage.innerHTML = "";

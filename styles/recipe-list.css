@@ -57,7 +57,7 @@
 .recipe-card:hover {
   box-shadow: 0 0 20px var(--primary-color);
   transform: scale(1.02);
-  transition: transform 0.3s ease, box-shadow 0.5s ease
+  transition: transform 0.3s ease, box-shadow 0.5s ease;
 }
 
 .bx-star {
@@ -90,6 +90,16 @@
   position: absolute;
   bottom: 0;
   margin-bottom: 1rem;
+}
+
+.your-recipe-text {
+  right: 0;
+  position: absolute;
+  padding: 0 0.7rem;
+  margin-right: 0.5rem;
+  color: var(--bg-color);
+  border-radius: 2rem;
+  background-color: var(--secondary-color);
 }
 
 .feedback-category {

@@ -1,5 +1,5 @@
 import { capitalizeFirstLetter } from "./utils/format-text.js";
-import './nav-bar.js'
+import "./nav-bar.js";
 
 export function renderRecipes(recipe) {
   const recipeCardHTML = `
@@ -8,10 +8,10 @@ export function renderRecipes(recipe) {
    }" style="background-image: url('${recipe.image}');">
         <div class="recipe-star-category">
          ${
-               recipe.favorite
-                 ? `<i class="bx js-favorite-icon bxs-star favorite-star-recipe-list" data-favorite-id=${recipe.id}></i>`
-                 : `<i class="bx js-favorite-icon bx-star" data-favorite-id=${recipe.id}></i>`
-             }
+           recipe.favorite
+             ? `<i class="bx js-favorite-icon bxs-star favorite-star-recipe-list" data-favorite-id=${recipe.id}></i>`
+             : `<i class="bx js-favorite-icon bx-star" data-favorite-id=${recipe.id}></i>`
+         }
         <p class="category js-category">${recipe.category}</p>
         </div>
         <p class="recipe-name js-recipe-name">${recipe.title}</p>
@@ -33,7 +33,7 @@ export function renderRecipeDetailCard(recipe) {
           <p class="recipe-summary js-recipe-summary">
           ${
             recipe.summary
-              ? recipe.summary.split(".")[0] 
+              ? recipe.summary.split(".")[0]
               : "No summary? Don't matcha-bout it, dive in!"
           }
           </p>
@@ -99,4 +99,24 @@ export function renderRecipeDetailCard(recipe) {
   `;
 
   return recipeDetailHTML;
+}
+
+export function renderUserRecipeCard(recipe) {
+  const userRecipeCardHTML = `
+    <div class="recipe-card js-recipe-card" data-recipe-id="${
+      recipe.id
+    }" style="background-image: url('${recipe.image}');">
+      <div class="recipe-star-category">
+        ${
+          recipe.favorite
+            ? `<i class="bx js-favorite-icon bxs-star favorite-star-recipe-list" data-favorite-id=${recipe.id}></i>`
+            : `<i class="bx js-favorite-icon bx-star" data-favorite-id=${recipe.id}></i>`
+        }
+        <p class="category js-category">${recipe.category}</p>
+      </div>
+      <p class="recipe-name js-recipe-name">${recipe.title}</p>
+      <p class="your-recipe-text">your recipe</p>
+    </div>
+  `;
+  return userRecipeCardHTML;
 }
