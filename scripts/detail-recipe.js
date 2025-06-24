@@ -12,7 +12,8 @@ import {
 } from "./recipe.js";
 
 const params = new URLSearchParams(window.location.search);
-const recipeId = Number(params.get("id"));
+const recipeIdRaw = params.get("id");
+const recipeId = isNaN(Number(recipeIdRaw)) ? recipeIdRaw : Number(recipeIdRaw);
 
 async function loadRecipeDetail() {
   if (apiRecipesDetails.length === 0) {
@@ -22,9 +23,9 @@ async function loadRecipeDetail() {
   const recipe = apiRecipesDetails.find((r) => r.id === recipeId);
   const userRecipe = userRecipes.find((r) => r.id === recipeId);
   if (recipe) {
-    renderRecipeDetail(recipe, "apiRecipesDetails");
+    renderRecipeDetail(recipe, apiRecipesDetails);
   } else if (userRecipe) {
-    renderRecipeDetail(userRecipe, "userRecipesDetails");
+    renderRecipeDetail(userRecipe, userRecipes);
   } else {
     console.error(`Recipe with ID ${recipeId} not found.`);
     document.querySelector(".js-recipe-details-container").innerHTML =
@@ -39,14 +40,17 @@ export function renderRecipeDetail(recipe, recipes) {
     ".js-recipe-details-container"
   );
   recipeDetailContainer.innerHTML =
-    recipes === "apiRecipesDetails"
+    recipes === apiRecipesDetails
       ? renderRecipeDetailCard(recipe)
       : renderUserRecipeDetailCard(recipe);
   document.title = `${recipe.title} | matcha moments`;
 
   document.querySelectorAll(".js-favorite-icon").forEach((icon) => {
     icon.addEventListener("click", () => {
-      const recipeId = Number(icon.dataset.favoriteId);
+      const recipeId =
+        typeof recipe.id === "number"
+          ? Number(icon.dataset.favoriteId)
+          : icon.dataset.favoriteId;
       const recipe = recipes.find((r) => r.id === recipeId);
       if (recipe) {
         recipe.favorite = !recipe.favorite;

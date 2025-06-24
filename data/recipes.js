@@ -10,12 +10,6 @@ function saveUserRecipes(recipes) {
 }
 
 export function addUserRecipe(recipe) {
-  const existingRecipe = userRecipes.find((r) => r.title === recipe.title);
-  if (existingRecipe) {
-    console.error("Recipe already exists:", recipe.title);
-    return;
-  }
-
   userRecipes.push(recipe);
   saveUserRecipes(userRecipes);
 

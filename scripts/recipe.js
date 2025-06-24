@@ -25,7 +25,7 @@ export function renderUserRecipeDetailCard(recipe) {
    <div class="details js-details">
         <div class="recipe-image-info">
           <img
-            src="${recipe.image}"
+            src="${recipe.image || "./images/test-image.jpg"}"
             alt="Recipe Image"
             class="recipe-image js-recipe-image"
           />
@@ -91,20 +91,12 @@ export function renderUserRecipeDetailCard(recipe) {
           <p class="instructions-text text">instructions</p>
           <ol class="instructions-ul">
           ${
-            recipe.instructions
-              ? recipe.instructions
-                  .filter((step) => step.trim() !== "")
-                  .map(
-                    (step) => `<li class="instructions-li">${step.trim()}</li>`
-                  )
+            recipe.instructions?.length
+              ? recipe.instructions.map((step) => `<li class="instructions-li">${step.trim()}</li>`)
                   .join("")
               : "<li>No instructions available.</li>"
           }
           </ol>
-          <p class="credits-recipe">
-        Powered by
-        <a href="https://spoonacular.com" target="_blank">Spoonacular API</a>
-      </p>
         </div>
       </div>
   `;

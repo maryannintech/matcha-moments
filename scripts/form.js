@@ -41,7 +41,7 @@ recipeForm.addEventListener("submit", (event) => {
       .map((i) => i.trim())
       .filter(Boolean),
     instructions: recipeInstructions
-      .split(".")
+      .split(",")
       .map((s) => s.trim())
       .filter(Boolean),
     favorite: false,
