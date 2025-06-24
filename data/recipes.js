@@ -117,6 +117,12 @@ export function updateFavoriteStatus(recipeId, isFavorite) {
     findRecipe.favorite = isFavorite;
     saveApiRecipesDetails(apiRecipesDetails);
   }
+
+  const userRecipe = userRecipes.find((r) => r.id === recipeId);
+  if (userRecipe) {
+    userRecipe.favorite = isFavorite;
+    saveUserRecipes(userRecipes);
+  }
 }
 
 function determineCategory(ingredients) {

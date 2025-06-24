@@ -57,10 +57,10 @@ recipeForm.addEventListener("submit", (event) => {
   }, 2000);
 });
 
-const convertDriveLink = (url) => {
+function convertDriveLink(url) {
   const match = url.match(/\/d\/(.*?)\//);
   if (match && match[1]) {
     return `https://drive.google.com/uc?export=view&id=${match[1]}`;
   }
   return url;
-};
+}

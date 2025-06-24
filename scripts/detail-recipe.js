@@ -51,15 +51,15 @@ export function renderRecipeDetail(recipe, recipes) {
         typeof recipe.id === "number"
           ? Number(icon.dataset.favoriteId)
           : icon.dataset.favoriteId;
-      const recipe = recipes.find((r) => r.id === recipeId);
-      if (recipe) {
-        recipe.favorite = !recipe.favorite;
+      const foundRecipe = recipes.find((r) => r.id === recipeId);
+      if (foundRecipe) {
+        foundRecipe.favorite = !foundRecipe.favorite;
         icon.classList.toggle("bxs-star");
         icon.classList.toggle("bx-star");
-        updateFavoriteStatus(recipeId, recipe.favorite);
+        updateFavoriteStatus(recipeId, foundRecipe.favorite);
         recipes === "apiRecipesDetails"
-          ? renderRecipes(recipe)
-          : renderUserRecipeCard(recipe);
+          ? renderRecipes(foundRecipe)
+          : renderUserRecipeCard(foundRecipe);
       } else {
         console.error(`Recipe with ID ${recipeId} not found.`);
       }
