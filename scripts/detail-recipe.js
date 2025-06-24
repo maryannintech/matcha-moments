@@ -17,12 +17,12 @@ async function loadRecipeDetail() {
 
   const recipe = apiRecipesDetails.find((r) => r.id === recipeId);
   console.log("Recipe found:", recipe);
-  recipe ? renderRecipeDetail(recipe) : "Recipe not found";
+  recipe ? renderRecipeDetail(recipe, apiRecipesDetails) : "Recipe not found";
 }
 
 loadRecipeDetail();
 
-export function renderRecipeDetail(recipe) {
+export function renderRecipeDetail(recipe, recipes) {
   const recipeDetailContainer = document.querySelector(
     ".js-recipe-details-container"
   );
@@ -32,7 +32,7 @@ export function renderRecipeDetail(recipe) {
   document.querySelectorAll(".js-favorite-icon").forEach((icon) => {
     icon.addEventListener("click", () => {
       const recipeId = Number(icon.dataset.favoriteId);
-      const recipe = apiRecipesDetails.find((r) => r.id === recipeId);
+      const recipe = recipes.find((r) => r.id === recipeId);
       if (recipe) {
         recipe.favorite = !recipe.favorite;
         icon.classList.toggle("bxs-star");

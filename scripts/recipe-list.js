@@ -34,12 +34,12 @@ document.querySelectorAll(".filter-btn").forEach((filterBtn) => {
 
 export function renderRecipeList() {
   userRecipes.forEach((recipe) => {
-    const recipeCardHTML = renderRecipes(recipe);
+    const recipeCardHTML = renderUserRecipeCard(recipe);
     recipeListContainer.innerHTML += recipeCardHTML;
   });
 
   apiRecipesDetails.forEach((recipe) => {
-    const recipeCardHTML = renderUserRecipeCard(recipe);
+    const recipeCardHTML = renderRecipes(recipe);
     recipeListContainer.innerHTML += recipeCardHTML;
   });
 
