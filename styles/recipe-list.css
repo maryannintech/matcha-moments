@@ -52,6 +52,7 @@
   padding: 1vh 1.5vh;
   position: relative;
   cursor: pointer;
+  background-color: var(--accent-color);
 }
 
 .recipe-card:hover {
