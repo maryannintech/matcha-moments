@@ -56,32 +56,52 @@ export function recipeCardClick() {
 }
 
 export function renderFavoriteRecipes() {
-  let favoriteRecipes = [];
   feedbackCategory.innerHTML = "";
+  let favoriteUserRecipes = userRecipes.filter((recipe) => recipe.favorite);
+  let favoriteApiRecipes = apiRecipesDetails.filter(
+    (recipe) => recipe.favorite
+  );
+
   if (recipeListContainer) {
     recipeListContainer.innerHTML = "";
-    favoriteRecipes = returnFavoriteRecipes();
-    favoriteRecipes.forEach((recipe) => {
-      const favoriteRecipeCardHTML = renderRecipes(recipe);
-      recipeListContainer.innerHTML += favoriteRecipeCardHTML;
+
+    // Render user recipe favorites with renderUserRecipeCard
+    favoriteUserRecipes.forEach((recipe) => {
+      recipeListContainer.innerHTML += renderFavoriteRecipeCard(recipe, "user");
+    });
+
+    // Render API recipe favorites with renderRecipes
+    favoriteApiRecipes.forEach((recipe) => {
+      const cardHTML = renderRecipes(recipe);
+      recipeListContainer.innerHTML += renderFavoriteRecipeCard(recipe, "api");
     });
   } else if (recipeDetailListContainer) {
     recipeDetailListContainer.innerHTML = "";
-    favoriteRecipes = returnFavoriteRecipes();
-    favoriteRecipes.forEach((recipe) => {
-      const favoriteRecipeCardHTML = renderRecipes(recipe);
-      recipeDetailListContainer.innerHTML += favoriteRecipeCardHTML;
+
+    favoriteUserRecipes.forEach((recipe) => {
+      const cardHTML = renderUserRecipeCard(recipe);
+      recipeDetailListContainer.innerHTML += cardHTML;
+    });
+
+    favoriteApiRecipes.forEach((recipe) => {
+      const cardHTML = renderRecipes(recipe);
+      recipeDetailListContainer.innerHTML += cardHTML;
     });
   } else if (recipeListFormContainer) {
     recipeListFormContainer.innerHTML = "";
-    favoriteRecipes = returnFavoriteRecipes();
-    favoriteRecipes.forEach((recipe) => {
-      const favoriteRecipeCardHTML = renderRecipes(recipe);
-      recipeListFormContainer.innerHTML += favoriteRecipeCardHTML;
+
+    favoriteUserRecipes.forEach((recipe) => {
+      const cardHTML = renderUserRecipeCard(recipe);
+      recipeListFormContainer.innerHTML += cardHTML;
+    });
+
+    favoriteApiRecipes.forEach((recipe) => {
+      const cardHTML = renderRecipes(recipe);
+      recipeListFormContainer.innerHTML += cardHTML;
     });
   }
 
-  if (favoriteRecipes.length === 0) {
+  if (favoriteUserRecipes.length + favoriteApiRecipes.length === 0) {
     feedbackCategory.innerHTML = `
       <p class="feedback-message">
         <span class="feedback-category-emphasis">Nothing here yet!</span>
@@ -92,11 +112,4 @@ export function renderFavoriteRecipes() {
 
   document.title = "my favorites | matcha moments";
   recipeCardClick();
-}
-
-function returnFavoriteRecipes() {
-  let favoriteRecipes = userRecipes.filter((recipe) => {
-    return recipe.favorite;
-  });
-  return favoriteRecipes;
 }
