@@ -58,22 +58,21 @@ export function recipeCardClick() {
 export function renderFavoriteRecipes() {
   feedbackCategory.innerHTML = "";
   let favoriteUserRecipes = userRecipes.filter((recipe) => recipe.favorite);
-  let favoriteApiRecipes = apiRecipesDetails.filter(
-    (recipe) => recipe.favorite
-  );
+  let favoriteApiRecipes = apiRecipesDetails.filter((recipe) => recipe.favorite);
 
   if (recipeListContainer) {
     recipeListContainer.innerHTML = "";
 
     // Render user recipe favorites with renderUserRecipeCard
     favoriteUserRecipes.forEach((recipe) => {
-      recipeListContainer.innerHTML += renderFavoriteRecipeCard(recipe, "user");
+      const cardHTML = renderUserRecipeCard(recipe);
+      recipeListContainer.innerHTML += cardHTML;
     });
 
     // Render API recipe favorites with renderRecipes
     favoriteApiRecipes.forEach((recipe) => {
       const cardHTML = renderRecipes(recipe);
-      recipeListContainer.innerHTML += renderFavoriteRecipeCard(recipe, "api");
+      recipeListContainer.innerHTML += cardHTML;
     });
   } else if (recipeDetailListContainer) {
     recipeDetailListContainer.innerHTML = "";
