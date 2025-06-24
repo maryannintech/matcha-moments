@@ -45,8 +45,15 @@ export function renderUserRecipeDetailCard(recipe) {
              }
             <p>save this recipe?</p>
           </div>
+           <div>
+           </div>
         </div>
-          <div class="delete-edit-btns">
+      </div>
+      
+      <div
+        class="recipe-instructions-equiptment js-recipe-instructions-equiptment"
+      >
+      <div class="delete-edit-btns">
            <div class="edit-recipe-btn js-edit-recipe-btn">
           <i class='bx  bxs-edit-alt'  ></i> 
           <p>edit recipe</p>
@@ -55,11 +62,7 @@ export function renderUserRecipeDetailCard(recipe) {
           <i class='bx  bxs-trash'  ></i> 
          <p>delete recipe</p>
          </div>
-       
-      </div>
-      <div
-        class="recipe-instructions-equiptment js-recipe-instructions-equiptment"
-      >
+         </div>
         <div class="ingredints-container">
           <p class="ingredients-text text">ingredients</p>
           <ul class="ingredients-ul">

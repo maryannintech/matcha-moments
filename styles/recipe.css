@@ -99,7 +99,7 @@
   gap: 1rem;
   margin-top: 0.5rem;
   margin-bottom: 1rem;
-  width: 40vw;
+  flex-wrap: wrap;
 }
 
 .delete-recipe-btn,
@@ -119,6 +119,13 @@
 .delete-recipe-btn:hover,
 .edit-recipe-btn:hover {
   background-color: var(--primary-color);
+}
+
+.details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 @keyframes softPopIn {
