@@ -4,7 +4,6 @@
   justify-content: space-between;
   align-items: center;
   padding: 3vh;
-  gap: 3vh;
 }
 
 .logo-nav-bar {
@@ -80,6 +79,7 @@ nav {
   font-size: 1.2rem;
   animation: slideDown 0.3s ease forwards;
   margin: 0;
+
 }
 
 .open-nav-bar p {

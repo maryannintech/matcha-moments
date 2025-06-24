@@ -57,48 +57,24 @@ export function recipeCardClick() {
 
 export function renderFavoriteRecipes() {
   feedbackCategory.innerHTML = "";
-  let favoriteUserRecipes = userRecipes.filter((recipe) => recipe.favorite);
-  let favoriteApiRecipes = apiRecipesDetails.filter((recipe) => recipe.favorite);
 
-  if (recipeListContainer) {
-    recipeListContainer.innerHTML = "";
+  const favoriteUserRecipes = userRecipes.filter((r) => r.favorite);
+  const favoriteApiRecipes = apiRecipesDetails.filter((r) => r.favorite);
 
-    // Render user recipe favorites with renderUserRecipeCard
+  function renderFavoritesTo(container) {
+    if (!container) return;
+    container.innerHTML = "";
     favoriteUserRecipes.forEach((recipe) => {
-      const cardHTML = renderUserRecipeCard(recipe);
-      recipeListContainer.innerHTML += cardHTML;
+      container.innerHTML += renderUserRecipeCard(recipe);
     });
-
-    // Render API recipe favorites with renderRecipes
     favoriteApiRecipes.forEach((recipe) => {
-      const cardHTML = renderRecipes(recipe);
-      recipeListContainer.innerHTML += cardHTML;
-    });
-  } else if (recipeDetailListContainer) {
-    recipeDetailListContainer.innerHTML = "";
-
-    favoriteUserRecipes.forEach((recipe) => {
-      const cardHTML = renderUserRecipeCard(recipe);
-      recipeDetailListContainer.innerHTML += cardHTML;
-    });
-
-    favoriteApiRecipes.forEach((recipe) => {
-      const cardHTML = renderRecipes(recipe);
-      recipeDetailListContainer.innerHTML += cardHTML;
-    });
-  } else if (recipeListFormContainer) {
-    recipeListFormContainer.innerHTML = "";
-
-    favoriteUserRecipes.forEach((recipe) => {
-      const cardHTML = renderUserRecipeCard(recipe);
-      recipeListFormContainer.innerHTML += cardHTML;
-    });
-
-    favoriteApiRecipes.forEach((recipe) => {
-      const cardHTML = renderRecipes(recipe);
-      recipeListFormContainer.innerHTML += cardHTML;
+      container.innerHTML += renderRecipes(recipe);
     });
   }
+
+  renderFavoritesTo(recipeListContainer);
+  renderFavoritesTo(recipeDetailListContainer);
+  renderFavoritesTo(recipeListFormContainer);
 
   if (favoriteUserRecipes.length + favoriteApiRecipes.length === 0) {
     feedbackCategory.innerHTML = `
