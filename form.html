@@ -57,8 +57,8 @@
         <p class="about-nav-bar js-about-nav-bar">about</p>
       </div>
     </nav>
+    <div class="feedback-category js-feedback-category"></div>
     <div class="form-section">
-      <div class="feedback-category js-feedback-category"></div>
       <div class="form-container js-form-container">
         <form class="js-upload-recipe-form">
           <p class="form-title">Upload your recipe</p>
@@ -84,7 +84,6 @@
             name="recipe-image"
             class="recipe-image-input js-recipe-image-input"
             placeholder="Paste image link (Google Drive or URL)"
-            required
           />
 
           <label for="recipe-category-input">Category</label>
@@ -117,7 +116,8 @@
             required
             minlength="10"
             maxlength="500"
-            placeholder="Enter equipment needed, separated by commas"></textarea>
+            placeholder="Enter equipment needed, separated by commas"
+          ></textarea>
           <label for="recipe-instructions-input">Instructions:</label>
           <textarea
             id="recipe-instructions-input"

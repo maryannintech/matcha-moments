@@ -25,7 +25,7 @@ export function renderUserRecipeDetailCard(recipe) {
    <div class="details js-details">
         <div class="recipe-image-info">
           <img
-            src="${recipe.image || "./images/test-image.jpg"}"
+            src="${recipe.image || "./images/default-recipe-img.png"}"
             alt="Recipe Image"
             class="recipe-image js-recipe-image"
           />
@@ -47,14 +47,15 @@ export function renderUserRecipeDetailCard(recipe) {
           </div>
         </div>
           <div class="delete-edit-btns">
+           <div class="edit-recipe-btn js-edit-recipe-btn">
+          <i class='bx  bxs-edit-alt'  ></i> 
+          <p>edit recipe</p>
+        </div>
          <div class="delete-recipe-btn js-delete-recipe-btn">
           <i class='bx  bxs-trash'  ></i> 
          <p>delete recipe</p>
          </div>
-        <div class="edit-recipe-btn js-edit-recipe-btn">
-          <i class='bx  bxs-edit-alt'  ></i> 
-          <p>edit recipe</p>
-        </div>
+       
       </div>
       <div
         class="recipe-instructions-equiptment js-recipe-instructions-equiptment"
@@ -92,7 +93,10 @@ export function renderUserRecipeDetailCard(recipe) {
           <ol class="instructions-ul">
           ${
             recipe.instructions?.length
-              ? recipe.instructions.map((step) => `<li class="instructions-li">${step.trim()}</li>`)
+              ? recipe.instructions
+                  .map(
+                    (step) => `<li class="instructions-li">${step.trim()}</li>`
+                  )
                   .join("")
               : "<li>No instructions available.</li>"
           }
@@ -189,7 +193,9 @@ export function renderUserRecipeCard(recipe) {
   const userRecipeCardHTML = `
     <div class="recipe-card js-recipe-card" data-recipe-id="${
       recipe.id
-    }" style="background-image: url('${recipe.image}');">
+    }" style="background-image: url('${
+    recipe.image || "./images/default-recipe-img.png"
+  }');">
       <div class="recipe-star-category">
         ${
           recipe.favorite

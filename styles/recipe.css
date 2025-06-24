@@ -116,6 +116,11 @@
   color: var(--bg-color);
 }
 
+.delete-recipe-btn:hover,
+.edit-recipe-btn:hover {
+  background-color: var(--primary-color);
+}
+
 @keyframes softPopIn {
   0% {
     opacity: 0;

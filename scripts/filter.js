@@ -1,5 +1,5 @@
-import { renderRecipes } from "./recipe.js";
-import { apiRecipesDetails} from "../data/recipes.js";
+import { renderRecipes, renderUserRecipeCard } from "./recipe.js";
+import { apiRecipesDetails, userRecipes} from "../data/recipes.js";
 import { recipeCardClick } from "./recipe-list.js";
 import { renderRecipeList } from "./recipe-list.js";
 
@@ -20,7 +20,12 @@ export function renderRecipesByCategory(category) {
     return firstWord === category;
   });
 
-  if (matchingRecipes.length === 0) {
+  const userRecipesMatching = userRecipes.filter((recipe) => {
+    const firstWord = recipe.category.split(" ")[0];
+    return firstWord === category;
+  });
+
+  if (matchingRecipes.length === 0 && userRecipesMatching.length === 0) {
     feedbackCategory.innerHTML = `
       <p class="feedback-message">
         <span class="feedback-category-emphasis">Nothing here yet!</span>
@@ -31,11 +36,19 @@ export function renderRecipesByCategory(category) {
     return;
   }
 
+  userRecipesMatching.forEach((recipe) => {
+    recipeListContainer.innerHTML += renderRecipesCard(recipe, "user");
+  });
+
   matchingRecipes.forEach((recipe) => {
-    const categoryRecipeCardHTML = renderRecipes(recipe);
-    recipeListContainer.innerHTML += categoryRecipeCardHTML;
-    document.title = `${recipe.category} recipes | matcha moments`;
+    recipeListContainer.innerHTML += renderRecipesCard(recipe, "api");
   });
 
   recipeCardClick();
+}
+
+function renderRecipesCard(recipe, recipes) {
+  const categoryRecipeCardHTML = recipes === "api"? renderRecipes(recipe) : renderUserRecipeCard(recipe);
+  document.title = `${recipe.category} recipes | matcha moments`;
+  return categoryRecipeCardHTML;
 }
