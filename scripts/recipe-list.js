@@ -2,8 +2,8 @@ import {
   fetchRecipeDetails,
   apiRecipesDetails,
   fetchRecipes,
-  allRecipes,
   apiRecipes,
+  userRecipes,
 } from "../data/recipes.js";
 import { renderRecipes } from "./recipe.js";
 import { renderRecipesByCategory } from "./filter.js";
@@ -22,9 +22,7 @@ const recipeListContainer = document.querySelector(".recipes-container");
 const recipeDetailListContainer = document.querySelector(
   ".js-recipe-details-container"
 );
-const recipeListFormContainer = document.querySelector(
-  ".js-form-container"
-);
+const recipeListFormContainer = document.querySelector(".js-form-container");
 const feedbackCategory = document.querySelector(".js-feedback-category");
 
 document.querySelectorAll(".filter-btn").forEach((filterBtn) => {
@@ -35,10 +33,16 @@ document.querySelectorAll(".filter-btn").forEach((filterBtn) => {
 });
 
 export function renderRecipeList() {
-  allRecipes.forEach((recipe) => {
+  userRecipes.forEach((recipe) => {
     const recipeCardHTML = renderRecipes(recipe);
     recipeListContainer.innerHTML += recipeCardHTML;
   });
+
+  apiRecipesDetails.forEach((recipe) => {
+    const recipeCardHTML = renderRecipes(recipe);
+    recipeListContainer.innerHTML += recipeCardHTML;
+  });
+
   recipeCardClick();
 }
 
@@ -91,7 +95,7 @@ export function renderFavoriteRecipes() {
 }
 
 function returnFavoriteRecipes() {
-  let favoriteRecipes = allRecipes.filter((recipe) => {
+  let favoriteRecipes = userRecipes.filter((recipe) => {
     return recipe.favorite;
   });
   return favoriteRecipes;

@@ -1,5 +1,5 @@
 import { renderRecipes } from "./recipe.js";
-import { apiRecipesDetails, allRecipes } from "../data/recipes.js";
+import { apiRecipesDetails} from "../data/recipes.js";
 import { recipeCardClick } from "./recipe-list.js";
 import { renderRecipeList } from "./recipe-list.js";
 
@@ -15,7 +15,7 @@ export function renderRecipesByCategory(category) {
     return;
   }
 
-  const matchingRecipes = allRecipes.filter((recipe) => {
+  const matchingRecipes = apiRecipesDetails.filter((recipe) => {
     const firstWord = recipe.category.split(" ")[0];
     return firstWord === category;
   });

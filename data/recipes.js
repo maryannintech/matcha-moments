@@ -1,18 +1,13 @@
 import { myApiKey } from "../secret.js";
 
-// all recipes
-export let allRecipes = localStorage.getItem("allRecipes")
-  ? JSON.parse(localStorage.getItem("allRecipes"))
-  : [];
-
-export function saveAllRecipes(recipes) {
-  localStorage.setItem("allRecipes", JSON.stringify(recipes));
-}
-
 // user recipes
 export let userRecipes = localStorage.getItem("userRecipes")
   ? JSON.parse(localStorage.getItem("userRecipes"))
   : [];
+
+function saveUserRecipes(recipes) {
+  localStorage.setItem("userRecipes", JSON.stringify(recipes));
+}
 
 export function addUserRecipe(recipe) {
   const existingRecipe = userRecipes.find((r) => r.title === recipe.title);
@@ -22,14 +17,7 @@ export function addUserRecipe(recipe) {
   }
 
   userRecipes.push(recipe);
-  localStorage.setItem("userRecipes", JSON.stringify(userRecipes));
-
-  allRecipes.push(recipe); 
-  saveAllRecipes(allRecipes);
-
-  allRecipes.push(recipe);
-  saveAllRecipes(allRecipes);
-  syncAllRecipes();
+  saveUserRecipes(userRecipes);
 
   console.log("User recipe added:", recipe);
 }
@@ -118,9 +106,6 @@ export async function fetchRecipeDetails() {
     }
 
     saveApiRecipesDetails(apiRecipesDetails);
-    syncAllRecipes();
-    saveAllRecipes(allRecipes);
-    
   } catch (error) {
     console.error("Error fetching recipe details:", error);
   }
@@ -133,14 +118,10 @@ export function updateFavoriteStatus(recipeId, isFavorite) {
     saveApiRecipesDetails(apiRecipesDetails);
   }
 
-  const allRecipe = allRecipes.find((r) => r.id === recipeId);
-  if (allRecipe) {
-    allRecipe.favorite = isFavorite;
-    saveAllRecipes(allRecipes);
-  }
-
-  if (!recipe && !allRecipe) {
-    console.error(`Recipe with ID ${recipeId} not found in either list.`);
+  const findRecipe = apiRecipesDetails.find((r) => r.id === recipeId);
+  if (findRecipe) {
+    findRecipe.favorite = isFavorite;
+    saveApiRecipesDetails(apiRecipesDetails);
   }
 }
 
@@ -161,9 +142,4 @@ function determineCategory(ingredients) {
     category = "deserts";
   }
   return category;
-}
-
-export function syncAllRecipes() {
-  allRecipes = [...userRecipes, ...apiRecipesDetails];
-  saveAllRecipes(allRecipes);
 }
