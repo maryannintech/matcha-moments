@@ -94,6 +94,28 @@
   text-decoration: none;
 }
 
+.delete-edit-btns {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  width: 40vw;
+}
+
+.delete-recipe-btn,
+.edit-recipe-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--accent-color);
+  padding: 0.3rem 0.5rem;
+  cursor: pointer;
+  color: var(--bg-color);
+}
+
 @keyframes softPopIn {
   0% {
     opacity: 0;
