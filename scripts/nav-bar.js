@@ -10,13 +10,15 @@ document.querySelector(".bxs-menu-wide").addEventListener("click", () => {
   openNavBarElement.classList.remove("hide");
 });
 
-document.querySelector(".js-my-favorites-nav-bar").addEventListener("click", () => {
-  openNavBarElement.classList.add("hide");
-  renderFavoriteRecipes();
-})
+document
+  .querySelector(".js-my-favorites-nav-bar")
+  .addEventListener("click", () => {
+    openNavBarElement.classList.add("hide");
+    renderFavoriteRecipes();
+  });
 
 document.querySelector(".js-close-nav-bar").addEventListener("click", () => {
-  openNavBarElement.classList.add("hide")
+  openNavBarElement.classList.add("hide");
 });
 
 document
@@ -27,8 +29,20 @@ document
 
 document.querySelector(".js-logo-nav-bar").addEventListener("click", () => {
   window.location.href = "index.html";
-})
+});
 
-document.querySelector(".js-upload-recipe-nav-bar").addEventListener("click", () => {
-  window.location.href = "form.html";
-})
+document
+  .querySelector(".js-upload-recipe-nav-bar")
+  .addEventListener("click", () => {
+    window.location.href = "form.html";
+  });
+
+const searchElement = document.querySelector(".js-search-bar");
+
+searchElement.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    console.log("Search initiated for:", searchElement.value);
+    searchElement.value = "";
+  }
+});
+
