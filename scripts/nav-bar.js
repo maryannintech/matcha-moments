@@ -1,4 +1,5 @@
-import { renderFavoriteRecipes } from "./recipe-list.js";
+import { renderFavoriteRecipes, renderSearchResults } from "./recipe-list.js";
+import { capitalizeFirstLetter } from "./utils/format-text.js";
 
 document.querySelector(".bxs-home-alt").addEventListener("click", () => {
   window.location.href = "index.html";
@@ -41,8 +42,7 @@ const searchElement = document.querySelector(".js-search-bar");
 
 searchElement.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
-    console.log("Search initiated for:", searchElement.value);
+    renderSearchResults(capitalizeFirstLetter(searchElement.value));
     searchElement.value = "";
   }
 });
-

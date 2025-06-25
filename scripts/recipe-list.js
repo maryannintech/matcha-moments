@@ -61,26 +61,34 @@ export function recipeCardClick() {
   });
 }
 
+function renderRecipesTo(userRecipes, apiRecipes, container) {
+  if (!container) return;
+  container.innerHTML = "";
+  userRecipes.forEach((recipe) => {
+    container.innerHTML += renderUserRecipeCard(recipe);
+  });
+  apiRecipes.forEach((recipe) => {
+    container.innerHTML += renderRecipes(recipe);
+  });
+}
+
 export function renderFavoriteRecipes() {
   feedbackCategory.innerHTML = "";
 
   const favoriteUserRecipes = userRecipes.filter((r) => r.favorite);
   const favoriteApiRecipes = apiRecipesDetails.filter((r) => r.favorite);
 
-  function renderFavoritesTo(container) {
-    if (!container) return;
-    container.innerHTML = "";
-    favoriteUserRecipes.forEach((recipe) => {
-      container.innerHTML += renderUserRecipeCard(recipe);
-    });
-    favoriteApiRecipes.forEach((recipe) => {
-      container.innerHTML += renderRecipes(recipe);
-    });
-  }
-
-  renderFavoritesTo(recipeListContainer);
-  renderFavoritesTo(recipeDetailListContainer);
-  renderFavoritesTo(recipeListFormContainer);
+  renderRecipesTo(favoriteUserRecipes, favoriteApiRecipes, recipeListContainer);
+  renderRecipesTo(
+    favoriteUserRecipes,
+    favoriteApiRecipes,
+    recipeDetailListContainer
+  );
+  renderRecipesTo(
+    favoriteUserRecipes,
+    favoriteApiRecipes,
+    recipeListFormContainer
+  );
 
   if (favoriteUserRecipes.length + favoriteApiRecipes.length === 0) {
     feedbackCategory.innerHTML = `
@@ -93,4 +101,33 @@ export function renderFavoriteRecipes() {
 
   document.title = "my favorites | matcha moments";
   recipeCardClick();
+}
+
+export function renderSearchResults(searchTerm) {
+  const searchUserRecipes = userRecipes.filter((recipe) => {
+    return (
+      recipe.title.includes(searchTerm) ||
+      recipe.ingredients.some((ingredient) => ingredient.includes(searchTerm))
+    );
+  });
+
+  const searchApiRecipes = apiRecipesDetails.filter((recipe) => {
+    return (
+      recipe.title.includes(searchTerm) ||
+      recipe.ingredients.some((ingredient) => ingredient.includes(searchTerm))
+    );
+  });
+
+  renderRecipesTo(searchUserRecipes, searchApiRecipes, recipeListContainer);
+
+  renderRecipesTo(
+    searchUserRecipes,
+    searchApiRecipes,
+    recipeDetailListContainer
+  );
+
+  renderRecipesTo(searchUserRecipes, searchApiRecipes, recipeListFormContainer);
+
+  recipeCardClick();
+  document.title = `Search results for "${searchTerm}" | matcha moments`;
 }
