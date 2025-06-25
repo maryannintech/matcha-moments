@@ -37,4 +37,5 @@ body {
 .feedback-category-emphasis {
   display: block;
   color: var(--accent-color);
+  margin-bottom: 1rem;
 }
