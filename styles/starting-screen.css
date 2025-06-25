@@ -3,37 +3,74 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh
+  min-height: 100vh;
+  animation: softPopIn 0.4s ease forwards;
 }
 
 .logo-starting-screen {
-    max-width: 230px;
-    min-width: 100px;
-    padding-left: 9%;
+  max-width: 230px;
+  min-width: 100px;
+  padding-left: 9%;
 }
 
 .matcha-moments-starting-screen {
-    color: var(--primary-color);
-    font-size: clamp(2rem, 1vw, 3.5rem);
-    margin-top: 5vh;
+  color: var(--primary-color);
+  font-size: clamp(2rem, 1vw, 3.5rem);
+  margin-top: 5vh;
 }
 
 .loading-text,
 .credits {
-    font-size: clamp(1.2rem, 1.5vw, 2rem);
+  font-size: clamp(1.2rem, 1.5vw, 2rem);
 }
 
 .credits {
-    position: fixed;
-    bottom: 0;
-    padding-bottom: 3vh;
+  position: fixed;
+  bottom: 0;
+  padding-bottom: 3vh;
 }
 
 .credits > a {
-    color: var(--secondary-color);
-    text-decoration: none;
+  color: var(--secondary-color);
+  text-decoration: none;
 }
 
 .hide {
-    display: none;
+  display: none;
+}
+
+.dot {
+  animation: blink 1.4s infinite;
+  font-weight: bold;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes softPopIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
