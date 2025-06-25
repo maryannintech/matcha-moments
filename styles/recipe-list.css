@@ -1,3 +1,7 @@
+.index-body {
+  animation: softPopIn 0.4s ease forwards;
+}
+
 .recipe-lists {
   padding: 0 6%;
 }
@@ -115,7 +119,7 @@
 }
 
 .button-up {
-  position: fixed;
+  position: sticky;
   bottom: 2vh;
   right: 2vh;
   width: 3.5rem;

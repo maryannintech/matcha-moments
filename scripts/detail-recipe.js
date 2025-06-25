@@ -10,6 +10,7 @@ import {
   renderUserRecipeCard,
   renderUserRecipeDetailCard,
 } from "./recipe.js";
+import { controlNavBar } from "./nav-bar.js";
 
 const params = new URLSearchParams(window.location.search);
 const recipeIdRaw = params.get("id");
@@ -36,6 +37,7 @@ async function loadRecipeDetail() {
 loadRecipeDetail();
 
 export function renderRecipeDetail(recipe, recipes) {
+  controlNavBar();
   const recipeDetailContainer = document.querySelector(
     ".js-recipe-details-container"
   );

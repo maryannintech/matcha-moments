@@ -1,9 +1,11 @@
 import "./nav-bar.js";
 import { addUserRecipe } from "../data/recipes.js";
+import { controlNavBar } from "./nav-bar.js";
 
 const feedbackMessage = document.querySelector(".js-feedback-category");
 feedbackMessage.innerHTML = "";
 const recipeForm = document.querySelector(".js-upload-recipe-form");
+controlNavBar();
 
 recipeForm.addEventListener("submit", (event) => {
   event.preventDefault();

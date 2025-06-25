@@ -7,14 +7,14 @@
 }
 
 .logo-starting-screen {
-    max-width: 300px;
+    max-width: 230px;
     min-width: 100px;
     padding-left: 9%;
 }
 
 .matcha-moments-starting-screen {
     color: var(--primary-color);
-    font-size: clamp(2.5rem, 2vw, 3.5rem);
+    font-size: clamp(2rem, 1vw, 3.5rem);
     margin-top: 5vh;
 }
 

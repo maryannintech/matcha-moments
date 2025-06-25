@@ -16,7 +16,7 @@ export async function loadRecipes() {
   console.log("Loaded recipes:", apiRecipesDetails);
 }
 
-loadRecipes();
+await loadRecipes();
 
 const recipeListContainer = document.querySelector(".recipes-container");
 const recipeDetailListContainer = document.querySelector(
