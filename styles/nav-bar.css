@@ -109,6 +109,15 @@ nav {
   display: none;
 }
 
+.feedback-message {
+    text-align: center;
+  margin-top: 1rem;
+  font-size: 1.3rem;
+  color: var(--secondary-color);
+}
+
+
+
 @keyframes slideDown {
   0% {
     opacity: 0;

@@ -70,6 +70,15 @@ function renderRecipesTo(userRecipes, apiRecipes, container) {
   apiRecipes.forEach((recipe) => {
     container.innerHTML += renderRecipes(recipe);
   });
+
+  if (userRecipes.length + apiRecipes.length === 0) {
+    container.innerHTML = `
+      <p class="feedback-message">
+        <span class="feedback-category-emphasis">Nothing here yet!</span>
+        No recipes found
+      </p>
+    `;
+  }
 }
 
 export function renderFavoriteRecipes() {
@@ -89,15 +98,6 @@ export function renderFavoriteRecipes() {
     favoriteApiRecipes,
     recipeListFormContainer
   );
-
-  if (favoriteUserRecipes.length + favoriteApiRecipes.length === 0) {
-    feedbackCategory.innerHTML = `
-      <p class="feedback-message">
-        <span class="feedback-category-emphasis">Nothing here yet!</span>
-        No favorite recipes found
-      </p>
-    `;
-  }
 
   document.title = "my favorites | matcha moments";
   recipeCardClick();
