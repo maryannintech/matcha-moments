@@ -35,6 +35,10 @@
   text-decoration: none;
 }
 
+.loading-text-container {
+    display: flex;
+}
+
 .hide {
   display: none;
 }
