@@ -1,0 +1,40 @@
+:root {
+  --text-color: #0a0b05;
+  --bg-color: #f8faf4;
+  --primary-color: #8ea60d;
+  --secondary-color: #5a5a37;
+  --accent-color: #253134;
+}
+
+body {
+  background-color: var(--bg-color);
+  overflow: auto;
+}
+
+* {
+  font-family: "Itim", cursive;
+  margin: 0;
+  padding: 0;
+}
+
+.hide {
+  display: none;
+}
+
+.feedback-message {
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--secondary-color);
+  margin-top: 1rem;
+}
+
+.feedback-category {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 1.3rem;
+}
+
+.feedback-category-emphasis {
+  display: block;
+  color: var(--accent-color);
+}

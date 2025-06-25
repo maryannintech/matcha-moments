@@ -11,7 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Itim&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles/color-style-and-fonts.css" />
+    <link rel="stylesheet" href="styles/shared-styles.css" />
     <link rel="stylesheet" href="styles/starting-screen.css" />
     <link rel="stylesheet" href="styles/nav-bar.css" />
     <link rel="stylesheet" href="styles/recipe-list.css" />
@@ -26,10 +26,12 @@
   </head>
   <body>
     <nav class="nav-bar js-nav-bar">
-       <div class="open-nav-bar js-open-nav-bar hide">
+      <div class="open-nav-bar js-open-nav-bar hide">
         <div class="close-nav-bar js-close-nav-bar">x</div>
         <p class="my-favorites-nav-bar js-my-favorites-nav-bar">my favorites</p>
-        <p class="upload-recipe-nav-bar js-upload-recipe-nav-bar">upload recipe</p>
+        <p class="upload-recipe-nav-bar js-upload-recipe-nav-bar">
+          upload recipe
+        </p>
         <p class="about-nav-bar js-about-nav-bar">about</p>
       </div>
       <div class="right-elements-nav">
@@ -55,8 +57,9 @@
         </div>
       </div>
     </nav>
-    <div class="recipe-details-container js-recipe-details-container"></div>
     <div class="feedback-category js-feedback-category"></div>
+    <div class="recipe-details-container js-recipe-details-container"></div>
+
     <script src="scripts/detail-recipe.js" type="module"></script>
   </body>
 </html>

@@ -79,7 +79,6 @@ nav {
   font-size: 1.2rem;
   animation: slideDown 0.3s ease forwards;
   margin: 0;
-
 }
 
 .open-nav-bar p {
@@ -108,15 +107,6 @@ nav {
 .hide {
   display: none;
 }
-
-.feedback-message {
-    text-align: center;
-  margin-top: 1rem;
-  font-size: 1.3rem;
-  color: var(--secondary-color);
-}
-
-
 
 @keyframes slideDown {
   0% {

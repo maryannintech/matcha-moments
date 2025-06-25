@@ -129,5 +129,10 @@ export function renderSearchResults(searchTerm) {
   renderRecipesTo(searchUserRecipes, searchApiRecipes, recipeListFormContainer);
 
   recipeCardClick();
+  feedbackCategory.innerHTML = `
+    <p class="feedback-message">
+      <span class="feedback-category-emphasis">Search results for "${searchTerm}"</span>
+    </p>
+  `;
   document.title = `Search results for "${searchTerm}" | matcha moments`;
 }

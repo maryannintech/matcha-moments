@@ -50,9 +50,5 @@ recipeForm.addEventListener("submit", (event) => {
 
   addUserRecipe(recipe);
   recipeForm.reset();
-
-  feedbackMessage.textContent = `Recipe added successfully!`;
-  setTimeout(() => {
-    feedbackMessage.textContent = "";
-  }, 2000);
+  window.location.href = "index.html";
 });
