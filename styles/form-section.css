@@ -3,6 +3,7 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 2vh;
+  padding: 0 6%;
 }
 
 form {
