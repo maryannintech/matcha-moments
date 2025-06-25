@@ -4,5 +4,4 @@ import "./scripts/nav-bar.js";
 
 window.addEventListener("DOMContentLoaded", () => {
   renderRecipeList(); 
-  console.log(userRecipes)
 });

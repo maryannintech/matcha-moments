@@ -46,3 +46,10 @@ searchElement.addEventListener("keydown", (event) => {
     searchElement.value = "";
   }
 });
+
+document.querySelector(".js-button-up").addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});
