@@ -107,14 +107,14 @@ export function renderSearchResults(searchTerm) {
   const searchUserRecipes = userRecipes.filter((recipe) => {
     return (
       recipe.title.includes(searchTerm) ||
-      recipe.ingredients.some((ingredient) => ingredient.includes(searchTerm))
+      recipe.ingredients.some((ingredient) => ingredient.includes(searchTerm.toLowerCase()))
     );
   });
 
   const searchApiRecipes = apiRecipesDetails.filter((recipe) => {
     return (
       recipe.title.includes(searchTerm) ||
-      recipe.ingredients.some((ingredient) => ingredient.includes(searchTerm))
+      recipe.ingredients.some((ingredient) => ingredient.includes(searchTerm.toLowerCase()))
     );
   });
 
