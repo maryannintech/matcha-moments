@@ -16,6 +16,11 @@ export function addUserRecipe(recipe) {
   console.log("User recipe added:", recipe);
 }
 
+export function deleteUserRecipe(recipeId) {
+  userRecipes = userRecipes.filter((recipe) => recipe.id !== recipeId);
+  saveUserRecipes(userRecipes);
+}
+
 export let apiRecipes = localStorage.getItem("apiRecipes")
   ? JSON.parse(localStorage.getItem("apiRecipes"))
   : [];

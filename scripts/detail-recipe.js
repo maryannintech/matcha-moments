@@ -3,6 +3,7 @@ import {
   fetchRecipeDetails,
   updateFavoriteStatus,
   userRecipes,
+  deleteUserRecipe,
 } from "../data/recipes.js";
 import {
   renderRecipeDetailCard,
@@ -45,8 +46,9 @@ export function renderRecipeDetail(recipe, recipes) {
     recipes === apiRecipesDetails
       ? renderRecipeDetailCard(recipe)
       : renderUserRecipeDetailCard(recipe);
-  document.title = `${recipe.title} | matcha moments`;
 
+  document.title = `${recipe.title} | matcha moments`;
+  editAndDeleteRecipe();
   document.querySelectorAll(".js-favorite-icon").forEach((icon) => {
     icon.addEventListener("click", () => {
       const recipeId =
@@ -67,4 +69,41 @@ export function renderRecipeDetail(recipe, recipes) {
       }
     });
   });
+}
+
+function editAndDeleteRecipe() {
+  document.querySelectorAll(".js-delete-recipe-btn").forEach((button) => {
+    button.addEventListener("click", () => {
+      const recipeId = button.dataset.recipeId;
+      console.log(`Delete button clicked for recipe ID: ${recipeId}`);
+      const confirmation = confirm(
+        "Are you sure you want to delete this recipe?"
+      );
+      if (confirmation) {
+        deleteUserRecipe(recipeId);
+        window.location.href = "index.html";
+      }
+    });
+  });
+
+  /*
+  if (editButton) {
+    editButton.addEventListener("click", () => {
+      window.location.href = `form.html?id=${recipe.id}`;
+    });
+  }
+
+  if (deleteButton) {
+    deleteButton.addEventListener("click", () => {
+      const confirmation = confirm(
+        "Are you sure you want to delete this recipe?"
+      );
+      if (confirmation) {
+        // Logic to delete the recipe
+        console.log(`Recipe with ID ${recipe.id} deleted.`);
+        window.location.href = "index.html";
+      }
+    });
+  }
+    */
 }

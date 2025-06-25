@@ -13,7 +13,7 @@ export async function loadRecipes() {
     await fetchRecipes();
     await fetchRecipeDetails();
   }
-  console.log("Loaded recipes:", apiRecipesDetails);
+  console.log("Loaded recipes:", apiRecipesDetails, userRecipes);
 }
 
 await loadRecipes();

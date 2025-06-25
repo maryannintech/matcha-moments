@@ -55,11 +55,11 @@ export function renderUserRecipeDetailCard(recipe) {
         class="recipe-instructions-equiptment js-recipe-instructions-equiptment"
       >
       <div class="delete-edit-btns">
-           <div class="edit-recipe-btn js-edit-recipe-btn">
+           <div class="edit-recipe-btn js-edit-recipe-btn" data-recipe-id="${recipe.id}">
           <i class='bx  bxs-edit-alt'  ></i> 
           <p>edit recipe</p>
         </div>
-         <div class="delete-recipe-btn js-delete-recipe-btn">
+         <div class="delete-recipe-btn js-delete-recipe-btn" data-recipe-id="${recipe.id}">
           <i class='bx  bxs-trash'  ></i> 
          <p>delete recipe</p>
          </div>
