@@ -149,7 +149,7 @@ function editAndDeleteRecipe() {
 
         updateUserRecipe(updatedRecipe);
         uploadRecipeForm.reset();
-        window.location.href = "index.html";
+        window.location.href = "recipe.html?id=" + recipeIdRaw;
       });
     });
   });
@@ -158,7 +158,7 @@ function editAndDeleteRecipe() {
 function renderEditForm(recipe) {
   const formHTML = `
        <form class="js-upload-recipe-form">
-          <p class="form-title">Upload your recipe</p>
+          <p class="form-title">Update your recipe</p>
           <label for="recipe-name-input">Recipe Name: </label>
           <input
             type="text"
