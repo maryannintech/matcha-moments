@@ -21,6 +21,17 @@ export function deleteUserRecipe(recipeId) {
   saveUserRecipes(userRecipes);
 }
 
+export function updateUserRecipe(updatedRecipe) {
+  const index = userRecipes.findIndex((recipe) => recipe.id === updatedRecipe.id);
+  if (index !== -1) {
+    userRecipes[index] = updatedRecipe;
+    saveUserRecipes(userRecipes);
+    console.log("User recipe updated:", updatedRecipe);
+  } else {
+    console.error(`Recipe with ID ${updatedRecipe.id} not found.`);
+  }
+}
+
 export let apiRecipes = localStorage.getItem("apiRecipes")
   ? JSON.parse(localStorage.getItem("apiRecipes"))
   : [];
