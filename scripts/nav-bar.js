@@ -48,6 +48,11 @@ export function controlNavBar() {
     }
   });
 
+  document.querySelector(".js-about-nav-bar").addEventListener("click", () => {
+    window.location.href = "about.html";
+  })
+  
+
   document.querySelector(".js-button-up").addEventListener("click", () => {
     window.scrollTo({
       top: 0,

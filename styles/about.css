@@ -1,0 +1,44 @@
+.about-container {
+  display: flex;
+  justify-content: center;
+  padding: 0 2vw;
+  gap: 2vw;
+  height: 100vh;
+  box-sizing: border-box;
+  width: 90%;
+  animation: softPopIn 0.4s ease forwards;
+}
+
+.about-label {
+  font-size: 1.2rem;
+  text-align: center;
+  background-color: var(--primary-color);
+  color: var(--bg-color);
+  border: none;
+  border-radius: 15px;
+  width: fit-content;
+  margin: auto;
+  padding: 0 1rem;
+}
+
+.about-text {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+
+.about-image {
+  max-width: 25vw;
+  height: auto;
+  border-radius: 15px;
+  border: 10px solid var(--secondary-color);
+}
+
+a {
+    color: var(--bg-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
