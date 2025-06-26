@@ -72,7 +72,7 @@ nav {
   top: 0;
   left: 0;
   right: 0;
-  width: 100%;
+  width: 100vw;
   height: 95%;
   background-color: var(--primary-color);
   color: var(--bg-color);
@@ -116,5 +116,37 @@ nav {
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Mobile devices (up to 600px) */
+@media (max-width: 600px) {
+  body {
+    font-size: 1rem;
+  }
+  .feedback-message,
+  .feedback-category {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+  }
+}
+
+/* Tablets (601px to 900px) */
+@media (min-width: 601px) and (max-width: 900px) {
+  body {
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1200px) {
+  body {
+    font-size: 1.15rem;
+  }
+}
+
+/* Large desktops (1201px and up) */
+@media (min-width: 1201px) {
+  body {
+    font-size: 1.2rem;
   }
 }

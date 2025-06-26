@@ -18,6 +18,8 @@ const params = new URLSearchParams(window.location.search);
 const recipeIdRaw = params.get("id");
 const recipeId = isNaN(Number(recipeIdRaw)) ? recipeIdRaw : Number(recipeIdRaw);
 
+const feedbackMessage = document.querySelector(".js-feedback-category");
+
 async function loadRecipeDetail() {
   if (apiRecipesDetails.length === 0) {
     await fetchRecipeDetails();
@@ -149,7 +151,11 @@ function editAndDeleteRecipe() {
 
         updateUserRecipe(updatedRecipe);
         uploadRecipeForm.reset();
-        window.location.href = "recipe.html?id=" + recipeIdRaw;
+
+        showFeedbackMessage("Recipe updated successfully! Going back to recipe...");
+        setTimeout(() => {
+          window.location.href = "recipe.html?id=" + recipeIdRaw;
+        }, 3000);
       });
     });
   });
@@ -272,4 +278,8 @@ function renderEditForm(recipe) {
   `;
 
   return formHTML;
+}
+
+function showFeedbackMessage(message) {
+  feedbackMessage.innerHTML = `<p class="feedback-message">${message}</p>`;
 }
