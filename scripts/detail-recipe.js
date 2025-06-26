@@ -95,6 +95,14 @@ function editAndDeleteRecipe() {
       const recipe = userRecipes.find((r) => r.id === recipeId);
       recipeDetailContainer.innerHTML = renderEditForm(recipe);
       const uploadRecipeForm = document.querySelector(".js-upload-recipe-form");
+
+      document.querySelectorAll(".js-cancel-form-btn").forEach((button) => {
+        button.addEventListener("click", () => {
+          uploadRecipeForm.reset();
+          window.location.href = "recipe.html?id=" + recipeIdRaw;
+        });
+      });
+
       uploadRecipeForm.addEventListener("submit", (event) => {
         event.preventDefault();
         const recipeName = document.querySelector(
@@ -140,6 +148,7 @@ function editAndDeleteRecipe() {
         };
 
         updateUserRecipe(updatedRecipe);
+        uploadRecipeForm.reset();
         window.location.href = "index.html";
       });
     });
@@ -251,13 +260,13 @@ function renderEditForm(recipe) {
             type="submit"
             class="upload-recipe-btn form-btn js-upload-recipe-btn"
           >
-            Upload Recipe
+            Update Recipe
           </button>
           <button
-            type="reset"
-            class="reset-form-btn form-btn js-reset-form-btn"
+          type="button"
+            class="cancel-form-btn form-btn js-cancel-form-btn"
           >
-            Reset
+            Cancel
           </button>
         </form>
   `;
