@@ -25,10 +25,17 @@ function getRandomLoadingText() {
 }
 
 window.addEventListener("DOMContentLoaded", async () => {
-  document.querySelector(".js-loading-text").innerHTML = getRandomLoadingText();
+  document.querySelector(".js-loading-text").textContent = getRandomLoadingText();
+
   await loadRecipes();
-  localStorage.setItem("hasFetchedRecipes", "true");
-  setTimeout(() => {
-    window.location.href = "index.html";
-  }, 5000);
+  const recipesLoaded = localStorage.getItem("apiRecipesDetails");
+
+  if (recipesLoaded) {
+    localStorage.setItem("hasFetchedRecipes", "true");
+    setTimeout(() => {
+      window.location.href = "index.html";
+    }, 3000);
+  } else {
+    document.querySelector(".js-loading-text").textContent = "Failed to load recipes. Please try again later.";
+  }
 });

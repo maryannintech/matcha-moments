@@ -43,7 +43,7 @@ function saveApiRecipes(recipe) {
 export async function fetchRecipes() {
   try {
     const response = await fetch(
-      `https://api.spoonacular.com/recipes/complexSearch?query=matcha&number=10&apiKey=${myApiKey}`
+      `https://api.spoonacular.com/recipes/complexSearch?query=matcha&number=6&apiKey=${myApiKey}`
     );
     const data = await response.json();
     const results = data.results || [];
