@@ -151,11 +151,7 @@ function editAndDeleteRecipe() {
 
         updateUserRecipe(updatedRecipe);
         uploadRecipeForm.reset();
-
-        showFeedbackMessage("Recipe updated successfully! Going back to recipe...");
-        setTimeout(() => {
-          window.location.href = "recipe.html?id=" + recipeIdRaw;
-        }, 3000);
+        window.location.href = "recipe.html?id=" + recipeIdRaw;
       });
     });
   });
