@@ -4,7 +4,7 @@ import {
   updateFavoriteStatus,
   userRecipes,
   deleteUserRecipe,
-  updateUserRecipe
+  updateUserRecipe,
 } from "../data/recipes.js";
 import {
   renderRecipeDetailCard,
@@ -79,7 +79,6 @@ function editAndDeleteRecipe() {
   document.querySelectorAll(".js-delete-recipe-btn").forEach((button) => {
     button.addEventListener("click", () => {
       const recipeId = button.dataset.recipeId;
-      console.log(`Delete button clicked for recipe ID: ${recipeId}`);
       const confirmation = confirm(
         "Are you sure you want to delete this recipe?"
       );
@@ -93,12 +92,9 @@ function editAndDeleteRecipe() {
   document.querySelectorAll(".js-edit-recipe-btn").forEach((button) => {
     button.addEventListener("click", () => {
       const recipeId = button.dataset.recipeId;
-      console.log(`Edit button clicked for recipe ID: ${recipeId}`);
       const recipe = userRecipes.find((r) => r.id === recipeId);
       recipeDetailContainer.innerHTML = renderEditForm(recipe);
-      const uploadRecipeForm = document.querySelector(
-        ".js-upload-recipe-form"
-      );
+      const uploadRecipeForm = document.querySelector(".js-upload-recipe-form");
       uploadRecipeForm.addEventListener("submit", (event) => {
         event.preventDefault();
         const recipeName = document.querySelector(

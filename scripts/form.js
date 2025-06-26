@@ -1,5 +1,9 @@
 import "./nav-bar.js";
-import { addUserRecipe, userRecipes, updateUserRecipe } from "../data/recipes.js";
+import {
+  addUserRecipe,
+  userRecipes,
+  updateUserRecipe,
+} from "../data/recipes.js";
 import { controlNavBar } from "./nav-bar.js";
 
 const feedbackMessage = document.querySelector(".js-feedback-category");
@@ -54,6 +58,3 @@ recipeForm.addEventListener("submit", (event) => {
   recipeForm.reset();
   window.location.href = "index.html";
 });
-
-
-
