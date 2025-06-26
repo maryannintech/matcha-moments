@@ -129,6 +129,10 @@ nav {
     font-size: 1rem;
     margin-top: 0.5rem;
   }
+
+  .open-nav-bar {
+    width: 100%;
+  }
 }
 
 /* Tablets (601px to 900px) */
