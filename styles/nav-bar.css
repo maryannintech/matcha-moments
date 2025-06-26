@@ -130,8 +130,18 @@ nav {
     margin-top: 0.5rem;
   }
 
+  .nav-bar {
+    align-items: center;
+    justify-content: center;
+  }
+
   .open-nav-bar {
     width: 100%;
+  }
+
+  .recipe-details-container {
+    width: 100%;
+    padding-left: 5rem;
   }
 }
 
